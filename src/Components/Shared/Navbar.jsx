@@ -1,7 +1,44 @@
-import React from 'react';
+import { signOut } from 'firebase/auth';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import swal from 'sweetalert';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const Navbar = () => {
+
+    const {setLoggingAs,user,auth}=useContext(AuthContext)
+    const handleTypeUser=()=>{
+        swal("How You Want To Use This Account?", {
+            buttons: {
+              instructor: "Am an Instructor",
+     
+              student: 'Am a Student',
+            },
+          })
+          .then((value) => {
+            switch (value) {
+           
+              case "instructor":
+                setLoggingAs('instructor')
+                break;
+           
+              case "student":
+                setLoggingAs('student')
+                break;
+           
+       
+            }
+          });
+    }
+
+    const handleLogout=()=>{
+
+        signOut(auth).then(() => {
+            // Sign-out successful.
+          }).catch((error) => {
+            // An error happened.
+          });
+    }
     return (
         <div>
             <div className="navbar bg-base-100 font-nunito">
@@ -28,11 +65,8 @@ const Navbar = () => {
 
                 </div>
                 <div className="navbar-end">
-                    <ul className="menu menu-horizontal px-1 mr-[50px] text-lg ">
-
-
-                    </ul>
-                    <Link to='/login'><a className="btn btn-warning">Login</a></Link>
+     
+                    {user?<a onClick={handleLogout} className="btn btn-warning">logout</a>:<Link to='/login'><a className="btn btn-warning">Login</a></Link>}
                 </div>
             </div>
         </div>
