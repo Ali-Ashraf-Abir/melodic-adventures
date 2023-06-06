@@ -42,6 +42,17 @@ const Register = () => {
                   });
                   console.log(user)
                  setUser(user)
+                 fetch ('http://localhost:5000/users',{
+                     method:'POST',
+                     headers:{
+                         'content-type': 'application/json'
+                     },
+                     body:JSON.stringify(userData)
+                 })
+                 .then(res=>res.json())
+                 .then (data=>{
+                     console.log(data)
+                 })
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -56,7 +67,7 @@ const Register = () => {
 
         const password=event.target.value;
 
-        if(/^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+*!=]).*$/.test(password)==false){
+        if(/^(?=.{6,})(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+*!=.,]).*$/.test(password)==false){
 
             setPasswordError('the password must contain atleast one capital letter and on special character')
         }

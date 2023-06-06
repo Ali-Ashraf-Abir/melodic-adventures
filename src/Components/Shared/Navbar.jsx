@@ -52,7 +52,7 @@ const Navbar = () => {
                         <Link to='/'><h1 className='mr-5 hover:underline font-bold'>Home</h1></Link>
                      <Link to='/'><h1 className='mr-5 hover:underline font-bold'>Instructors</h1></Link>
                     <Link to='/'><h1 className='mr-5 hover:underline font-bold'>Classes</h1></Link>
-                    <Link to='/'><h1 className='mr-5 hover:underline font-bold'>Dashboards</h1></Link>
+                    {user&&<Link to='/dashboard'><h1 className='mr-5 hover:underline font-bold'>Dashboard</h1></Link>}
                         </ul>
                     </div>
                     <Link to='/'><img className='w-[80px] h-[80px]' src="https://media.discordapp.net/attachments/1072167540375179264/1115652133887410196/InstrumentLogo.png?width=427&height=427" alt="" /></Link>
@@ -62,7 +62,7 @@ const Navbar = () => {
                     <Link to='/'><h1 className='mr-5 hover:underline font-bold'>Home</h1></Link>
                      <Link to='/'><h1 className='mr-5 hover:underline font-bold'>Instructors</h1></Link>
                     <Link to='/'><h1 className='mr-5 hover:underline font-bold'>Classes</h1></Link>
-                    <Link to='/'><h1 className='mr-5 hover:underline font-bold'>Dashboards</h1></Link>
+                    {user&&<Link to='/dashboard'><h1 className='mr-5 hover:underline font-bold'>Dashboard</h1></Link>}
 
                 </div>
                 <div className="navbar-end">
