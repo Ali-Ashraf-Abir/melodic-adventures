@@ -1,13 +1,13 @@
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const Login = () => {
 
-
-    const { setLoggingAs, user, auth, loggingError, setLoggingError } = useContext(AuthContext)
+    const navigate=useNavigate()
+    const { setLoggingAs, user, auth, loggingError, setLoggingError,setUser,signinGoogle } = useContext(AuthContext)
     const handleTypeUser = () => {
         swal("How You Want To Use This Account?", {
             buttons: {
@@ -43,6 +43,8 @@ const Login = () => {
                 // Signed in 
                 const user = userCredential.user;
                 // ...
+                setUser(user)
+                navigate('/')
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -86,7 +88,7 @@ const Login = () => {
                 </form>
                 <div className="text-center mt-[20px] font-nunito">
                     <h1 className='my-2'>or,</h1>
-                    <button className='btn btn-neutral'>Sign in With Google</button>
+                    <button onClick={signinGoogle} className='btn btn-neutral'>Sign in With Google</button>
                 </div>
 
             </div>

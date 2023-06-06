@@ -6,7 +6,7 @@ import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const Navbar = () => {
 
-    const {setLoggingAs,user,auth}=useContext(AuthContext)
+    const {setLoggingAs,user,auth,setUser}=useContext(AuthContext)
     const handleTypeUser=()=>{
         swal("How You Want To Use This Account?", {
             buttons: {
@@ -35,6 +35,7 @@ const Navbar = () => {
 
         signOut(auth).then(() => {
             // Sign-out successful.
+            setUser(null)
           }).catch((error) => {
             // An error happened.
           });
@@ -65,8 +66,10 @@ const Navbar = () => {
 
                 </div>
                 <div className="navbar-end">
-     
+                    
+                    {user?.photoURL?<img className='w-[60px] h-[60px] rounded-[50%] mr-[20px]' src={user.photoURL}></img>:user&&<img className='w-[60px] h-[60px] rounded-[50%] mr-[20px]' src='https://th.bing.com/th/id/OIP.Z5BlhFYs_ga1fZnBWkcKjQHaHz?pid=ImgDet&rs=1'></img> }
                     {user?<a onClick={handleLogout} className="btn btn-warning">logout</a>:<Link to='/login'><a className="btn btn-warning">Login</a></Link>}
+
                 </div>
             </div>
         </div>

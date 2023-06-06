@@ -8,7 +8,7 @@ import { getAuth, updateProfile } from "firebase/auth";
 
 const Register = () => {
 
-    const { auth,setUser,loggingAs } = useContext(AuthContext)
+    const { auth,setUser,loggingAs,signinGoogle } = useContext(AuthContext)
 
     const handleSignin = (event) => {
 
@@ -51,6 +51,7 @@ const Register = () => {
 
     }
 
+  
 
 
 
@@ -108,7 +109,7 @@ const Register = () => {
             </form>
             <div className="text-center mt-[20px] font-nunito">
                 <h1 className='my-2'>or,</h1>
-                <button className='btn btn-neutral'>Sign in With Google</button>
+                <button onClick={signinGoogle} className='btn btn-neutral'>Sign in With Google</button>
             </div>
         </div>
 
