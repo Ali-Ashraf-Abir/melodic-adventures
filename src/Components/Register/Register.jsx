@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { getAuth, updateProfile } from "firebase/auth";
@@ -9,7 +9,7 @@ import { getAuth, updateProfile } from "firebase/auth";
 const Register = () => {
 
     const { auth,setUser,loggingAs,signinGoogle } = useContext(AuthContext)
-
+    const [passwordError,setPasswordError]=useState('')
     const handleSignin = (event) => {
 
         event.preventDefault()
@@ -25,7 +25,7 @@ const Register = () => {
 
         const userData = { email, password, imageUrl, address, gender,name,role }
         console.log(userData)
-
+        if(!passwordError){
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in 
@@ -47,11 +47,27 @@ const Register = () => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 // ..
-            });
+            });}
 
     }
 
   
+    const handlePassword=(event)=>{
+
+        const password=event.target.value;
+
+        if(/^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+*!=]).*$/.test(password)==false){
+
+            setPasswordError('the password must contain atleast one capital letter and on special character')
+        }
+        else{
+            setPasswordError(null)
+        }
+
+
+
+
+    }
 
 
 
@@ -80,7 +96,7 @@ const Register = () => {
 
                 <div className="">
                     <h1>Password:</h1>
-                    <input required name='password' type="password" placeholder="password" className="input input-bordered w-full max-w-xs" />
+                    <input onChange={handlePassword} required name='password' type="password" placeholder="password" className="input input-bordered w-full max-w-xs" />
 
                 </div>
 
@@ -105,6 +121,11 @@ const Register = () => {
                 </div>
                 <div className="mt-2">
                     <input type="submit" placeholder='Submit' className='btn bg-warning' />
+                </div>
+                <div className="">
+                    {
+                        passwordError&&<h1>{passwordError}</h1>
+                    }
                 </div>
             </form>
             <div className="text-center mt-[20px] font-nunito">

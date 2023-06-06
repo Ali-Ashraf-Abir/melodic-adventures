@@ -8,6 +8,8 @@ export default {
     extend: {
       fontFamily: {
         nunito:['Nunito'],
+        rubik: ['Rubik Puddles'],
+        shadows: ['Shadows Into Light']
       },
     },
   
