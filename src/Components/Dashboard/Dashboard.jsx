@@ -16,7 +16,7 @@ const Dashboard = () => {
     useEffect(()=>{
         
         if (user) {
-            fetch(`http://localhost:5000/currentuser/${user.email}`)
+            fetch(`http://localhost:5000/currentuser/${user.email.toLowerCase()}`)
                 .then(res => res.json())
                 .then(result => {
                     console.log(result)

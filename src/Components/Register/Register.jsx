@@ -15,7 +15,8 @@ const Register = () => {
         event.preventDefault()
 
         const form = event.target
-        const email = form.email.value
+        const email1 = form.email.value
+        const email=email1.toLowerCase()
         const password = form.password.value
         const imageUrl = form.url.value
         const address = form.address.value

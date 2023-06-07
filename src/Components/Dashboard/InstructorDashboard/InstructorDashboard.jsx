@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { faCoffee, faUser, faUserAlt, faSchoolCircleExclamation } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Addaclass from './Addaclass';
 
 const InstructorDashboard = () => {
     const [dashboard, setDashboard] = useState('classes')
@@ -21,7 +24,7 @@ const InstructorDashboard = () => {
                     {
                         dashboard == 'add class' && <div>
 
-                            <h1>this is add class</h1>
+                            <Addaclass></Addaclass>
 
                         </div>
                     }
