@@ -8,14 +8,14 @@ import StudendDashboard from './StudentDashboard/StudendDashboard';
 
 
 const Dashboard = () => {
-    const { user } = useContext(AuthContext)
+    const { user,loading } = useContext(AuthContext)
     
     const [userData, setData] = useState([])
 
 
     useEffect(()=>{
         
-        if (user) {
+        if (user && !loading) {
             fetch(`http://localhost:5000/currentuser/${user.email.toLowerCase()}`)
                 .then(res => res.json())
                 .then(result => {
@@ -23,7 +23,8 @@ const Dashboard = () => {
                     setData(result)
                 })
             }
-    },[])
+    
+    },[loading])
 
     console.log(user.email)
     

@@ -7,7 +7,7 @@ import { getAuth, updateProfile } from "firebase/auth";
 
 
 const Register = () => {
-
+    console.log(import.meta.env.VITE_IMAGEDB_API)
     const { auth,setUser,loggingAs,signinGoogle } = useContext(AuthContext)
     const [passwordError,setPasswordError]=useState('')
     const handleSignin = (event) => {

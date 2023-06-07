@@ -1,9 +1,27 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Addaclass = () => {
     const {user}=useContext(AuthContext)
+    console.log()
+    const [Image,setImage]=useState()
+
+    const handleImageUpload=(event)=>{
+        const formData=new FormData();
+        const img=event.target.files[0]
+        formData.append('image',img)
+        console.log(img)
+        fetch(`https://api.imgbb.com/1/upload?expiration=600&key=${import.meta.env.VITE_IMAGEDB_API} ` ,{
+            method:'POST',
+            body : formData
+            
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            setImage(data.data.url)
+        })
+    }
 
     const handleAddProduct=(event)=>{
 
@@ -16,10 +34,13 @@ const Addaclass = () => {
         const rating = form.rating.value 
         const description=form.ClassDescription.value 
         const email=form.email.value 
-        const img=form.url.value
+        const img=Image
         const username=user.displayName
+        const image=Image;
+        
+       
 
-        const product={name,category,price,rating,description,email,img,name,username}
+        const product={name,category,price,rating,description,email,img,name,username,image}
         console.log(product)
 
         fetch('http://localhost:5000/classes',{
@@ -81,9 +102,10 @@ const Addaclass = () => {
                 <input required type="email" name='email' placeholder="email" value={user?.email} className="input w-full max-w-xs" />
                 </div>
 
-                <input required type="text" name='url' placeholder="Enter Product ImageURL" className="input w-full max-w-xs mt-10" />
+             
+                <input onChange={handleImageUpload} type="file" name='image' className="file-input w-full max-w-xs mt-4"></input>
                 <input className='btn btn-warning mt-10 w-[40%] mx-auto' type="submit" value="Submit" />
-               
+    
 
             </form>
 

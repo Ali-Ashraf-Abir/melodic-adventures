@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { faCoffee, faUser, faUserAlt, faSchoolCircleExclamation } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Addaclass from './Addaclass';
+import MyClasses from './MyClasses';
 
 const InstructorDashboard = () => {
     const [dashboard, setDashboard] = useState('classes')
@@ -32,7 +33,8 @@ const InstructorDashboard = () => {
                     {
                         dashboard == 'my class' && <div>
 
-                            <h1>this is my class</h1>
+
+                            <MyClasses></MyClasses>
 
                         </div>
                     }

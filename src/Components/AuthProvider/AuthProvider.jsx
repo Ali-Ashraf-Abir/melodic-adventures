@@ -12,8 +12,8 @@ const auth = getAuth(app);
 
 
 const AuthProvider = ({children}) => {
-
-
+  
+  const [loading,setLoading]=useState(true)
     useEffect(()=>{
 
 
@@ -23,6 +23,7 @@ const AuthProvider = ({children}) => {
                // https://firebase.google.com/docs/reference/js/auth.user
                const uid = user.uid;
                setUser(user)
+               setLoading(false)
              } else {
                // User is signed out
                // ...
@@ -37,6 +38,8 @@ const AuthProvider = ({children}) => {
     const [user,setUser]=useState('')
     const [loggingAs,setLoggingAs]=useState()
     const [loggingError,setLoggingError]=useState()
+    
+
     const signinGoogle=()=>{
         signInWithPopup(auth, provider)
       .then((result) => {
@@ -46,6 +49,17 @@ const AuthProvider = ({children}) => {
         // ...
         setUser(user)
         console.log(user)
+        fetch ('http://localhost:5000/users',{
+          method:'POST',
+          headers:{
+              'content-type': 'application/json'
+          },
+          body:JSON.stringify(user)
+      })
+      .then(res=>res.json())
+      .then (data=>{
+          console.log(data)
+      })
       }).catch((error) => {
         // Handle Errors here.
         const errorCode = error.code;
@@ -64,7 +78,9 @@ const AuthProvider = ({children}) => {
         loggingError,
         setLoggingError,
         provider,
-        signinGoogle
+        signinGoogle,
+        loading,
+        setLoading
 
 
     }
