@@ -6,6 +6,7 @@ const MyClasses = () => {
 
     const {user,loading}=useContext(AuthContext)
     const [classes,setClasses]=useState([])
+    const [deleted,setDeleted]=useState(false)
 
     useEffect(()=>{
 
@@ -17,7 +18,7 @@ const MyClasses = () => {
         })
 
 
-    },[loading])
+    },[loading,deleted])
 
     return (
         <div>
@@ -28,7 +29,8 @@ const MyClasses = () => {
         {
             classes.map(singleClass => <MyClassesCard
             key={singleClass._id}
-            singleClass={singleClass}></MyClassesCard>)
+            singleClass={singleClass}
+            setDeleted={setDeleted}></MyClassesCard>)
         }
         </div>
         </div>
