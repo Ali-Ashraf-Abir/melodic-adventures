@@ -25,7 +25,7 @@ const Dashboard = () => {
             }
     },[])
 
-
+    console.log(user.email)
     
     
     return (

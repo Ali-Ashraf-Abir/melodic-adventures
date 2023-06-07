@@ -90,7 +90,7 @@ const Register = () => {
 
             <div className=''>
                     <h1>Role:</h1>
-                    <input required name='name' type="text" placeholder="Name" value={loggingAs?loggingAs:''} className="input input-bordered w-full max-w-xs" />
+                    <input required name='role' type="text" placeholder="Name" value={loggingAs?loggingAs:''} className="input input-bordered w-full max-w-xs" />
        
                 </div>
 
