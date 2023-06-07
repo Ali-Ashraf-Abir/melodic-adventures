@@ -8,6 +8,8 @@ const MyClasses = () => {
     const [classes,setClasses]=useState([])
     const [deleted,setDeleted]=useState(false)
 
+    const [updated,setUpdated]=useState(false)
+
     useEffect(()=>{
 
         fetch(`http://localhost:5000/currentuserclass/${user.email.toLowerCase()}`)
@@ -16,9 +18,10 @@ const MyClasses = () => {
             setClasses(data)
             console.log(data)
         })
+        setDeleted(false)
+        setUpdated(false)
 
-
-    },[loading,deleted])
+    },[loading,deleted,updated])
 
     return (
         <div>
@@ -30,7 +33,8 @@ const MyClasses = () => {
             classes.map(singleClass => <MyClassesCard
             key={singleClass._id}
             singleClass={singleClass}
-            setDeleted={setDeleted}></MyClassesCard>)
+            setDeleted={setDeleted}
+            setUpdated={setUpdated}></MyClassesCard>)
         }
         </div>
         </div>
