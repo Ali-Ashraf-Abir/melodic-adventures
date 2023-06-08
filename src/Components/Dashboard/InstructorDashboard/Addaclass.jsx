@@ -37,10 +37,15 @@ const Addaclass = () => {
         const img=Image
         const username=user.displayName
         const image=Image;
+        const status ='pending';
+        const totalEnrolled = 0;
+        const feedback=''
+        const seats=form.seats.value;
+        
         
        
 
-        const product={name,category,price,rating,description,email,img,name,username,image}
+        const product={feedback,name,category,price,rating,description,email,img,name,username,image,status,totalEnrolled}
         console.log(product)
 
         fetch('http://localhost:5000/classes',{
@@ -90,6 +95,8 @@ const Addaclass = () => {
                     <div className="mt-10 flex flex-col lg:flex-row  justify-center items-center gap-5">
                         <p>Price:</p>
                 <input required type="text" name='price' placeholder="Price" className="input w-full max-w-xs " />
+                <p>Available Seats:</p>
+                <input required type="text" name='seats' placeholder="Price" className="input w-full max-w-xs " />
             
                 <p>Rating:</p>
                 <input required type="number" name='rating' min='1' max='10' placeholder="Rating" className="input w-full max-w-xs" />

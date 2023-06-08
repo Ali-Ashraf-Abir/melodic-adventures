@@ -31,9 +31,15 @@ const AdminDashboard = () => {
                     {/* Page content here */}
                     <label htmlFor="my-drawer-2" className="btn btn-warning drawer-button lg:hidden">Open Menu</label>
                     {
-                        dashboard == 'classes' && <div>
+                        dashboard == 'classes' && <h1>this is classes</h1>
+                    }
 
-                            <h1>this is classes</h1>
+                    {
+                        dashboard == 'users' && <div>
+
+                            <div className="text-3xl font-bold text-center"><h1>Manage All Users</h1></div>
+                            <div>
+
                             <div className="overflow-x-auto font-nunito">
                                 <table className="table">
                                     {/* head */}
@@ -48,7 +54,7 @@ const AdminDashboard = () => {
                                     </thead>
                                     <tbody>
                                         {/* row 1 */}
-                                       {allUsers.map(user=><AdminTableRow
+                                       {allUsers.filter(user=>user.email!='admin@gmail.com').map(user=><AdminTableRow
                                        
                                        key={user._id}
                                        user={user}
@@ -69,12 +75,6 @@ const AdminDashboard = () => {
                             </div>
 
                         </div>
-                    }
-
-                    {
-                        dashboard == 'users' && <div>
-
-                            <h1>this is users</h1>
 
                         </div>
                     }

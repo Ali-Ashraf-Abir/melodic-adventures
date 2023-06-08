@@ -2,14 +2,14 @@ import React, { useContext, useState } from 'react';
 import swal from 'sweetalert';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
-const MyClassesCard = ({ singleClass, setDeleted,setUpdated }) => {
+const MyClassesCard = ({ singleClass, setDeleted, setUpdated }) => {
 
 
     const { user } = useContext(AuthContext)
 
     const id = singleClass._id
 
-    const [classes,SetClasses]=useState({})
+    const [classes, SetClasses] = useState({})
 
     const handleDelete = (id) => {
 
@@ -54,20 +54,21 @@ const MyClassesCard = ({ singleClass, setDeleted,setUpdated }) => {
 
         event.preventDefault()
 
-        const form=event.target 
-        const name=form.name.value 
-        const price = form.price.value  
-        const description=form.ClassDescription.value 
-        const email=form.email.value 
-        const id=form.id.value
+        const form = event.target
+        const name = form.name.value
+        const price = form.price.value
+        const description = form.ClassDescription.value
+        const email = form.email.value
+        const id = form.id.value
+        const seats=form.seats.value
 
-        const Class={name,price,description,id}
+        const Class = { name, price, description, id }
 
         console.log(Class)
 
         fetch(`http://localhost:5000/updateclass/${id}`, {
             method: 'PUT',
-            headers:{'content-type':'application/json'},
+            headers: { 'content-type': 'application/json' },
             body: JSON.stringify(Class),
         })
             .then(res => res.json())
@@ -111,7 +112,12 @@ const MyClassesCard = ({ singleClass, setDeleted,setUpdated }) => {
                 <div className="card-body">
                     <h2 className="card-title">{singleClass.name}</h2>
                     <p>{singleClass?.description?.slice(0, 30) + '...'}</p>
+                    <p>Total Enrolled:{singleClass?.totalEnrolled}</p>
+                    <p>Available Seats :{singleClass?.seats}</p>
+                    <button className={`btn btn-xs ${singleClass.status == 'pending' ? 'btn-warning' : singleClass.status == 'approved' ? 'btn-primary' : singleClass.status && 'btn-danger'}`}>{singleClass.status}</button>
+
                     <div className="card-actions justify-end">
+                        <button  className="btn btn-ghost">show feedback</button>
                         <button onClick={() => handleDelete(singleClass._id)} className="btn btn-primary">Delete</button>
                         <label htmlFor={singleClass._id} className="btn">Edit</label>
 
@@ -126,12 +132,14 @@ const MyClassesCard = ({ singleClass, setDeleted,setUpdated }) => {
                     <div className="text-center text-3xl font-nunito font-bold"><h1 className=''>Edit Your Class</h1></div>
                     <form onSubmit={handleEditClass} action="" className='flex flex-col justify-center items-center w-100% p-20 '>
 
-            
+
 
                         <div className="flex flex-col lg:flex-row mt-10 justify-center items-center gap-5">
                             <p>Name:</p>
                             <input required defaultValue={singleClass.name} type="text" name='name' placeholder="Enter Class Name" className="mr-10 input full max-w-xs" />
                             <input required defaultValue={singleClass._id} type="text" name='id' placeholder="Enter Class Name" className="mr-10 input full max-w-xs hidden" />
+                            <p>Seats:</p>
+                            <input required defaultValue={singleClass.seats} type="text" name='seats' placeholder="Available Seats" className="mr-10 input full max-w-xs" />
                             <br></br>
                         </div>
                         <div className="mt-10 flex flex-col lg:flex-row  justify-center items-center gap-5">

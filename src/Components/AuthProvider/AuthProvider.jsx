@@ -47,6 +47,9 @@ const AuthProvider = ({children}) => {
         const user = result.user;
         // IdP data available using getAdditionalUserInfo(result)
         // ...
+
+
+        const userData = { email:user.email, imageUrl:user.photoURL, name:user.displayName,role:'student' }
         setUser(user)
         console.log(user)
         fetch ('http://localhost:5000/users',{
@@ -54,7 +57,7 @@ const AuthProvider = ({children}) => {
           headers:{
               'content-type': 'application/json'
           },
-          body:JSON.stringify(user)
+          body:JSON.stringify(userData)
       })
       .then(res=>res.json())
       .then (data=>{
