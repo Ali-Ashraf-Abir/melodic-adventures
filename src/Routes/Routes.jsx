@@ -7,6 +7,7 @@ import Classes from '../Components/Classes/Classes';
 import Dashboard from '../Components/Dashboard/Dashboard';
 import Home from '../Components/Home/Home';
 import HomeComponents from '../Components/Home/HomeComponents';
+import Instructors from '../Components/Instructors/Instructors';
 import Login from '../Components/Login/Login';
 import PrivateRoute from '../Components/PrivateRoute.jsx/PrivateRoute';
 import Register from '../Components/Register/Register';
@@ -36,7 +37,11 @@ import Register from '../Components/Register/Register';
           {
             path:'/classes',
             element:<Classes></Classes>
-        }
+        },
+        {
+          path:'/instructors',
+          element:<Instructors></Instructors>
+      }
       ]
     },
   ]);

@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const ClassesCard = ({singleClass}) => {
     const {loading,user}=useContext(AuthContext)
     const [data,setData]=useState()
+    const navigate=useNavigate()
     const [addedclass,setAddedClass]=useState([])
     useEffect(()=>{
         
@@ -24,11 +26,18 @@ const ClassesCard = ({singleClass}) => {
 
     const [appliedclasses,setAppliedclasses] = useState([])
    
-    const handleAppliedclasses = (email,id) => {
+    const handleAppliedclasses = (email,user) => {
+        
+        if(!user){
+            navigate('/login')
+
+            return
+
+        }
 
         swal({
             title: "Are you sure?",
-            text: "You Want To Make This User An Admin?",
+            text: "you want to add this class to your list?",
             icon: "warning",
             buttons: true,
             dangerMode: true,
@@ -47,7 +56,7 @@ const ClassesCard = ({singleClass}) => {
                             console.log(result)
                         })
 
-                    swal("This user is now an Admin?", {
+                    swal("This Class is now Added To your dashboard", {
                         icon: "success",
                     });
                 } else {
@@ -64,7 +73,7 @@ const ClassesCard = ({singleClass}) => {
         <div>
             <Toaster></Toaster>
             <div className="card w-96 bg-base-100 shadow-xl font-nunito">
-                <figure><img src={singleClass.img} alt="Shoes" /></figure>
+                <figure><img className='w-[300px] h-[250px]' src={singleClass.img} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{singleClass.name}</h2>
                     <p>{singleClass.description.slice(0,30)+'......'}</p>
@@ -74,7 +83,7 @@ const ClassesCard = ({singleClass}) => {
                     <p>Total Enrolled:{singleClass.totalEnrolled}</p>
                     <div className="card-actions justify-end">
                         <button disabled={data?.role=='admin'?true:data?.role=='instructor'?true:singleClass.seats=='0'?true:false} className={`btn btn-primary $ ${user?.role=='admin'?'disabled':user?.role=='instructor'&&'disabled'}`}>Enroll Now</button>
-                        <button onClick={()=>handleAppliedclasses(user.email)} disabled={data?.role=='admin'?true:data?.role=='instructor'?true:singleClass.seats=='0'?true:false} className={`btn btn-primary ${singleClass.seats=='0'&& 'disabled'} ${user?.role=='admin'?'disabled':user?.role=='instructor'&&'disabled'}`}>Add to list</button>
+                        <button onClick={()=>handleAppliedclasses(user?.email,user)} disabled={data?.role=='admin'?true:data?.role=='instructor'?true:singleClass.seats=='0'?true:false} className={`btn btn-primary ${singleClass.seats=='0'&& 'disabled'} ${user?.role=='admin'?'disabled':user?.role=='instructor'&&'disabled'}`}>Add to list</button>
                     </div>
                 </div>
             </div>

@@ -45,7 +45,7 @@ const Addaclass = () => {
         
        
 
-        const product={feedback,name,category,price,rating,description,email,img,name,username,image,status,totalEnrolled}
+        const product={feedback,name,category,price,rating,description,email,img,name,username,image,status,totalEnrolled,seats}
         console.log(product)
 
         fetch('http://localhost:5000/classes',{

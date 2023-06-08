@@ -7,9 +7,11 @@ import { getAuth, updateProfile } from "firebase/auth";
 
 
 const Register = () => {
-  
+    window.scroll(0,0)
     const { auth,setUser,loggingAs,signinGoogle } = useContext(AuthContext)
     const [passwordError,setPasswordError]=useState('')
+    const [registerError,setRegisterError]=useState(null)
+    const [registerSuccess,setRegisterSuccess]=useState(null)
     const handleSignin = (event) => {
 
         event.preventDefault()
@@ -43,6 +45,8 @@ const Register = () => {
                   });
                   console.log(user)
                  setUser(user)
+                 form.reset()
+                 setRegisterSuccess("succesfully registered")
                  fetch ('http://localhost:5000/users',{
                      method:'POST',
                      headers:{
@@ -58,6 +62,8 @@ const Register = () => {
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
+
+                setRegisterError(errorMessage)
                 // ..
             });}
 
@@ -89,6 +95,11 @@ const Register = () => {
             <div className='text-3xl font-bold text-center'>Register Now!</div>
             <form onSubmit={handleSignin} className=' mt-[20px] lg:w-[40%] mx-auto bg-gray-300 py-12 rounded-lg flex flex-col justify-center items-center font-nunito font-bold'>
 
+                <div className="">
+                    {
+                        registerSuccess?registerSuccess:''
+                    }
+                </div>
 
             <div className="">
                     <h1>Name:</h1>
@@ -132,6 +143,9 @@ const Register = () => {
                 <div className="">
                     {
                         passwordError&&<h1>{passwordError}</h1>
+                    }
+                                        {
+                        registerError&&<h1>{registerError}</h1>
                     }
                 </div>
             </form>

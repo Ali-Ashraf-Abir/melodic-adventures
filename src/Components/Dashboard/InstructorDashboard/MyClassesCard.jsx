@@ -40,7 +40,7 @@ const MyClassesCard = ({ singleClass, setDeleted, setUpdated }) => {
 
 
                 } else {
-                    swal("Your imaginary file is safe!");
+                    swal("Your file is safe!");
                 }
             });
 
@@ -62,7 +62,7 @@ const MyClassesCard = ({ singleClass, setDeleted, setUpdated }) => {
         const id = form.id.value
         const seats = form.seats.value
 
-        const Class = { name, price, description, id }
+        const Class = { name, price, description, id,seats }
 
         console.log(Class)
 
@@ -76,6 +76,7 @@ const MyClassesCard = ({ singleClass, setDeleted, setUpdated }) => {
                 console.log(data)
                 if (data.modifiedCount === 1) {
                     setUpdated(true)
+                    swal('class updated')
                 }
 
             })
@@ -129,14 +130,14 @@ const MyClassesCard = ({ singleClass, setDeleted, setUpdated }) => {
                             <label className="modal-backdrop" htmlFor={singleClass._id}>Close</label>
                         </div>
                         <button onClick={() => handleDelete(singleClass._id)} className="btn btn-error">Delete</button>
-                        <label htmlFor={singleClass.email} className="btn btn-warning">Edit</label>
+                        <label htmlFor={singleClass.name} className="btn btn-warning">Edit</label>
 
 
 
                     </div>
                 </div>
             </div>
-            <input type="checkbox" id={singleClass.email} className="modal-toggle" />
+            <input type="checkbox" id={singleClass.name} className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box w-11/12 max-w-5xl bg-gray-300">
                     <div className="text-center text-3xl font-nunito font-bold"><h1 className=''>Edit Your Class</h1></div>
@@ -173,7 +174,7 @@ const MyClassesCard = ({ singleClass, setDeleted, setUpdated }) => {
 
                     </form>
                 </div>
-                <label className="modal-backdrop" htmlFor={singleClass.email}>Close</label>
+                <label className="modal-backdrop" htmlFor={singleClass.name}>Close</label>
             </div>
         </div>
     );

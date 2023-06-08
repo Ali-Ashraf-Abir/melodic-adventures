@@ -3,6 +3,8 @@ import ClassesCard from './ClassesCard';
 
 const Classes = () => {
 
+
+    window.scroll(0,0)
     
     const [classes,setClasses]=useState()
 
@@ -21,9 +23,9 @@ const Classes = () => {
     return (
         <div>
             <div className="h-200px text-center bg-warning py-12 text-3xl font-nunito"><p>All Classes</p></div>
-                <div className="grid grid-cols-1 lg:grid-cols-2 lg:w-[900px] w-[100%] mx-auto mt-[30px]">
+                <div className="grid grid-cols-1 lg:grid-cols-2 lg:w-[900px] w-[100%] mx-auto mt-[30px] gap-6">
                 {
-                classes?.filter(singleClass=>singleClass.status!='denied').map(singleClass=><ClassesCard
+                classes?.filter(singleClass=>singleClass.status!='denied'&&singleClass.status!='pending').map(singleClass=><ClassesCard
                 
                     key={singleClass._id}
                     singleClass={singleClass}
