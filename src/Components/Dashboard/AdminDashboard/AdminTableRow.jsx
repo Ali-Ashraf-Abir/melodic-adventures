@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AdminTableRow = ({ user }) => {
+const AdminTableRow = ({ user,setUpadate }) => {
 
     const handleMakeAdmin = (email) => {
 
@@ -24,6 +24,7 @@ const AdminTableRow = ({ user }) => {
                         .then(result => {
                             console.log(result)
                         })
+                        setUpadate(true)
                     swal("This user is now an Admin?", {
                         icon: "success",
                     });
@@ -59,6 +60,7 @@ const AdminTableRow = ({ user }) => {
                         .then(result => {
                             console.log(result)
                         })
+                        setUpadate(true)
                     swal("This user is now an Instructor?", {
                         icon: "success",
                     });

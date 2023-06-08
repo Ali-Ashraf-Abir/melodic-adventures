@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { faCoffee, faUser, faUserAlt, faSchoolCircleExclamation } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import AdminTableRow from './AdminTableRow';
+import ManageClass from './ManageClass';
 const AdminDashboard = () => {
     const [dashboard, setDashboard] = useState('classes')
     const [allUsers,setallUsers]=useState([])
+    const [updated,setUpadate]=useState(false)
 
     const handleDashboard = (menu) => {
         if (menu == 'classes') {
@@ -21,7 +23,8 @@ const AdminDashboard = () => {
             .then(result => {
                 setallUsers(result)
             })
-    }, [])
+            setUpadate(false)
+    }, [updated])
 
     return (
         <div>
@@ -31,7 +34,7 @@ const AdminDashboard = () => {
                     {/* Page content here */}
                     <label htmlFor="my-drawer-2" className="btn btn-warning drawer-button lg:hidden">Open Menu</label>
                     {
-                        dashboard == 'classes' && <h1>this is classes</h1>
+                        dashboard == 'classes' && <ManageClass></ManageClass>
                     }
 
                     {
@@ -58,6 +61,7 @@ const AdminDashboard = () => {
                                        
                                        key={user._id}
                                        user={user}
+                                       setUpadate={setUpadate}
                                        ></AdminTableRow>)}
                                     </tbody>
                                     {/* foot */}
