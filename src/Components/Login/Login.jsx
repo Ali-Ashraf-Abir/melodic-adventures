@@ -5,7 +5,7 @@ import swal from 'sweetalert';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const Login = () => {
-
+    window.scroll(0,0)
     const navigate=useNavigate()
     const { setLoggingAs, user, auth, loggingError, setLoggingError,setUser,signinGoogle } = useContext(AuthContext)
     const handleTypeUser = () => {

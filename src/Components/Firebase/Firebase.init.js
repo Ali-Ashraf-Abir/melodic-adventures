@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCYsBCbZj1rbBMb_pkF2AAClSPIu9kyrUs",
-  authDomain: "melodic-adventures.firebaseapp.com",
-  projectId: "melodic-adventures",
-  storageBucket: "melodic-adventures.appspot.com",
-  messagingSenderId: "727755557732",
-  appId: "1:727755557732:web:219c25ebd7e7608a844871"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId
 };
 
 // Initialize Firebase
