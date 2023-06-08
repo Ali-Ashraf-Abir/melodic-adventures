@@ -22,7 +22,7 @@ const Register = () => {
         const address = form.address.value
         const gender = form.gender.value
         const name = form.name.value
-        const role=loggingAs
+        const role='student'
 
         const userData = { email, password, imageUrl, address, gender,name,role }
         console.log(userData)
@@ -89,11 +89,6 @@ const Register = () => {
             <div className='text-3xl font-bold text-center'>Register Now!</div>
             <form onSubmit={handleSignin} className=' mt-[20px] lg:w-[40%] mx-auto bg-gray-300 py-12 rounded-lg flex flex-col justify-center items-center font-nunito font-bold'>
 
-            <div className=''>
-                    <h1>Role:</h1>
-                    <input required name='role' type="text" placeholder="Name" value={loggingAs?loggingAs:''} className="input input-bordered w-full max-w-xs" />
-       
-                </div>
 
             <div className="">
                     <h1>Name:</h1>

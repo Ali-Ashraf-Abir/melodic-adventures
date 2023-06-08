@@ -78,7 +78,7 @@ const Login = () => {
                         <input type="submit" placeholder='Submit' className='btn bg-warning' />
                     </div>
                     <div className="">
-                        <h1>dun have an account? <span onClick={handleTypeUser} className='text-blue-500'><Link to='/register'>register</Link></span> here</h1>
+                        <h1>dun have an account? <span className='text-blue-500'><Link to='/register'>register</Link></span> here</h1>
                     </div>
                     {
                         loggingError ? <div className="">
