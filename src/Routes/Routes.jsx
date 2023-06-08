@@ -8,6 +8,7 @@ import Dashboard from '../Components/Dashboard/Dashboard';
 import Home from '../Components/Home/Home';
 import HomeComponents from '../Components/Home/HomeComponents';
 import Login from '../Components/Login/Login';
+import PrivateRoute from '../Components/PrivateRoute.jsx/PrivateRoute';
 import Register from '../Components/Register/Register';
 
 
@@ -30,7 +31,7 @@ import Register from '../Components/Register/Register';
           },
           {
               path:'/dashboard',
-              element:<Dashboard></Dashboard>
+              element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>
           },
           {
             path:'/classes',

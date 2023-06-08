@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { faCoffee, faUser, faUserAlt, faSchoolCircleExclamation } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import MyClasses from '../InstructorDashboard/MyClasses';
+import StudentMyClasses from './MyClasses';
 
 const StudendDashboard = () => {
     const [dashboard, setDashboard] = useState('enrolled class')
@@ -28,13 +30,16 @@ const StudendDashboard = () => {
                         </div>
                     }
 
+              
                     {
                         dashboard == 'my class' && <div>
 
-                            <h1>this is my class</h1>
+                            
+                            <StudentMyClasses></StudentMyClasses>
 
                         </div>
                     }
+                  
 
                 </div>
                 <div className="drawer-side ">
