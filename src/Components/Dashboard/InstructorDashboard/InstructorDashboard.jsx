@@ -5,7 +5,7 @@ import Addaclass from './Addaclass';
 import MyClasses from './MyClasses';
 
 const InstructorDashboard = () => {
-    const [dashboard, setDashboard] = useState('classes')
+    const [dashboard, setDashboard] = useState('add class')
 
     const handleDashboard = (menu) => {
         if (menu == 'add class') {

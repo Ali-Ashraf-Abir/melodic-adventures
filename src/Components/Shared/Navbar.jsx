@@ -51,7 +51,7 @@ const Navbar = () => {
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <Link to='/'><h1 className='mr-5 hover:underline font-bold'>Home</h1></Link>
                      <Link to='/'><h1 className='mr-5 hover:underline font-bold'>Instructors</h1></Link>
-                    <Link to='/'><h1 className='mr-5 hover:underline font-bold'>Classes</h1></Link>
+                    <Link to='/classes'><h1 className='mr-5 hover:underline font-bold'>Classes</h1></Link>
                     {user&&<Link to='/dashboard'><h1 className='mr-5 hover:underline font-bold'>Dashboard</h1></Link>}
                         </ul>
                     </div>
@@ -61,7 +61,7 @@ const Navbar = () => {
                 <div className="navbar-center hidden lg:flex">
                     <Link to='/'><h1 className='mr-5 hover:underline font-bold'>Home</h1></Link>
                      <Link to='/'><h1 className='mr-5 hover:underline font-bold'>Instructors</h1></Link>
-                    <Link to='/'><h1 className='mr-5 hover:underline font-bold'>Classes</h1></Link>
+                    <Link to='/classes'><h1 className='mr-5 hover:underline font-bold'>Classes</h1></Link>
                     {user&&<Link to='/dashboard'><h1 className='mr-5 hover:underline font-bold'>Dashboard</h1></Link>}
 
                 </div>

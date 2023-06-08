@@ -3,7 +3,7 @@ import { faCoffee, faUser, faUserAlt, faSchoolCircleExclamation } from '@fortawe
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const StudendDashboard = () => {
-    const [dashboard, setDashboard] = useState('classes')
+    const [dashboard, setDashboard] = useState('enrolled class')
 
     const handleDashboard = (menu) => {
         if (menu == 'enrolled class') {

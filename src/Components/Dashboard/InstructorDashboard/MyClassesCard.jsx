@@ -60,7 +60,7 @@ const MyClassesCard = ({ singleClass, setDeleted, setUpdated }) => {
         const description = form.ClassDescription.value
         const email = form.email.value
         const id = form.id.value
-        const seats=form.seats.value
+        const seats = form.seats.value
 
         const Class = { name, price, description, id }
 
@@ -114,19 +114,29 @@ const MyClassesCard = ({ singleClass, setDeleted, setUpdated }) => {
                     <p>{singleClass?.description?.slice(0, 30) + '...'}</p>
                     <p>Total Enrolled:{singleClass?.totalEnrolled}</p>
                     <p>Available Seats :{singleClass?.seats}</p>
-                    <button className={`btn btn-xs ${singleClass.status == 'pending' ? 'btn-warning' : singleClass.status == 'approved' ? 'btn-primary' : singleClass.status && 'btn-danger'}`}>{singleClass.status}</button>
+                    <button className={`btn btn-xs w-[30%] ${singleClass.status == 'pending' ? 'btn-warning' : singleClass.status == 'approved' ? 'btn-primary' : singleClass.status && 'btn-danger'}`}>{singleClass.status}</button>
 
                     <div className="card-actions justify-end">
-                        <button  className="btn btn-ghost">show feedback</button>
-                        <button onClick={() => handleDelete(singleClass._id)} className="btn btn-primary">Delete</button>
-                        <label htmlFor={singleClass._id} className="btn">Edit</label>
+                        <label htmlFor={singleClass._id} className="btn">Show Feedback</label>
+
+                        {/* Put this part before </body> tag */}
+                        <input type="checkbox" id={singleClass._id} className="modal-toggle" />
+                        <div className="modal">
+                            <div className="modal-box">
+                                <h3 className="text-lg font-bold">Admin FeedBack</h3>
+                                <p className="py-4">{singleClass.feedback==''?'no feedback given yet':singleClass.feedback}</p>
+                            </div>
+                            <label className="modal-backdrop" htmlFor={singleClass._id}>Close</label>
+                        </div>
+                        <button onClick={() => handleDelete(singleClass._id)} className="btn btn-error">Delete</button>
+                        <label htmlFor={singleClass.email} className="btn btn-warning">Edit</label>
 
 
 
                     </div>
                 </div>
             </div>
-            <input type="checkbox" id={singleClass._id} className="modal-toggle" />
+            <input type="checkbox" id={singleClass.email} className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box w-11/12 max-w-5xl bg-gray-300">
                     <div className="text-center text-3xl font-nunito font-bold"><h1 className=''>Edit Your Class</h1></div>
@@ -163,7 +173,7 @@ const MyClassesCard = ({ singleClass, setDeleted, setUpdated }) => {
 
                     </form>
                 </div>
-                <label className="modal-backdrop" htmlFor={singleClass._id}>Close</label>
+                <label className="modal-backdrop" htmlFor={singleClass.email}>Close</label>
             </div>
         </div>
     );

@@ -88,7 +88,7 @@ const ManageClassTableRow = ({ singleClass, setUpdated }) => {
   
         swal({
             title: "Are you sure?",
-            text: "You Want To approve this class?",
+            text: "Is this your feedback?",
             icon: "warning",
             buttons: true,
             dangerMode: true,
@@ -108,7 +108,7 @@ const ManageClassTableRow = ({ singleClass, setUpdated }) => {
                             setUpdated(true)
                         })
 
-                    swal("the class is approved", {
+                    swal("Feedback Sent", {
                         icon: "success",
                     });
                 } else {

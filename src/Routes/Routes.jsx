@@ -3,6 +3,7 @@ import {
     createBrowserRouter,
 
   } from "react-router-dom";
+import Classes from '../Components/Classes/Classes';
 import Dashboard from '../Components/Dashboard/Dashboard';
 import Home from '../Components/Home/Home';
 import HomeComponents from '../Components/Home/HomeComponents';
@@ -30,7 +31,11 @@ import Register from '../Components/Register/Register';
           {
               path:'/dashboard',
               element:<Dashboard></Dashboard>
-          }
+          },
+          {
+            path:'/classes',
+            element:<Classes></Classes>
+        }
       ]
     },
   ]);
