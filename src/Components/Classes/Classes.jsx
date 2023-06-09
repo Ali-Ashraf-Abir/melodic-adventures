@@ -5,7 +5,7 @@ import ClassesCard from './ClassesCard';
 const Classes = () => {
 
 
-    window.scroll(0,0)
+
     const{loading}=useContext(AuthContext)
     const [classes,setClasses]=useState()
     const [added,setAdded]=useState(false)

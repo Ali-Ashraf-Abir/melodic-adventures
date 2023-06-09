@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
     return (
         <div>
-            <footer className="footer p-10 bg-gray-700 text-neutral-content mt-[50px]">
+            <footer className="footer p-6 bg-gray-700 text-neutral-content mt-[50px] ">
                 <div>
                     <img className='w-[100px] h-[100px]' src="https://media.discordapp.net/attachments/1072167540375179264/1115652133887410196/InstrumentLogo.png?width=427&height=427" alt="" />
                     <p>Melodic Adventures<br />Providing reliable service since 2007</p>

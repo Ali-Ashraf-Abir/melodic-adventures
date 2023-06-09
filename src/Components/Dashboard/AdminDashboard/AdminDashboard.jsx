@@ -7,7 +7,7 @@ const AdminDashboard = () => {
     const [dashboard, setDashboard] = useState('classes')
     const [allUsers,setallUsers]=useState([])
     const [updated,setUpadate]=useState(false)
-
+    window.scroll(0,0)
     const handleDashboard = (menu) => {
         if (menu == 'classes') {
             setDashboard('classes')

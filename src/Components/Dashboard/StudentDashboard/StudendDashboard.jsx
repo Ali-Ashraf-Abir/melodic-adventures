@@ -5,6 +5,7 @@ import MyClasses from '../InstructorDashboard/MyClasses';
 import StudentMyClasses from './MyClasses';
 
 const StudendDashboard = () => {
+    window.scroll(0,0)
     const [dashboard, setDashboard] = useState('enrolled class')
 
     const handleDashboard = (menu) => {

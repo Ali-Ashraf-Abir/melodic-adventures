@@ -7,7 +7,7 @@ const StudentMyClasses = () => {
     const { user,loading } = useContext(AuthContext)
     window.scroll(0,0)
     const [userData, setData] = useState()
-
+    const [deleted,setDeleted]=useState(false)
 
     useEffect(()=>{
         
@@ -15,12 +15,13 @@ const StudentMyClasses = () => {
             fetch(`http://localhost:5000/currentuser/${user.email.toLowerCase()}`)
                 .then(res => res.json())
                 .then(result => {
-                    console.log(result[0].addedClasses)
+
                     setData(result[0].addedClasses)
+                    setDeleted(false)
                 })
             }
     
-    },[loading])
+    },[loading,deleted])
 
 
     return (
@@ -33,7 +34,8 @@ const StudentMyClasses = () => {
                 
                 key={singleClass._id}
                 singleClass={singleClass}
-                
+                data={userData}
+                setDeleted={setDeleted}
                 ></StudentClassesCard>)
             }
               </div>

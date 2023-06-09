@@ -7,16 +7,22 @@ const InstructorCard = ({ instructor }) => {
     const { user,loading } = useContext(AuthContext)
     const [classes, setClasses] = useState()
     const [data,setData]=useState()
+    const [dataLoading,setDataLoading]=useState(true)
     const navigate=useNavigate()
 
     useEffect(()=>{
-        
+        if(!data){
+            setDataLoading(true)
+        }
+
+
         if (user && !loading) {
             fetch(`http://localhost:5000/currentuser/${user.email.toLowerCase()}`)
                 .then(res => res.json())
                 .then(result => {
         
                     setData(result[0])
+                    setDataLoading(false)
                 })
             }
     
@@ -111,31 +117,33 @@ const InstructorCard = ({ instructor }) => {
                                         <tbody>
                                             {/* row 1 */}
                                             {
-                                                classes?.map(Class => <tr>
-                                                    <th>
-                                                    <div className="avatar">
-                                                                <div className="mask mask-squircle w-12 h-12">
-                                                                    <img src={Class?.img} alt="Avatar Tailwind CSS Component" />
+                                                dataLoading? <div className=""><span className="loading loading-ring loading-lg"></span></div>:
+                                                    classes?.map(Class => <tr>
+                                                        <th>
+                                                        <div className="avatar">
+                                                                    <div className="mask mask-squircle w-12 h-12">
+                                                                        <img src={Class?.img} alt="Avatar Tailwind CSS Component" />
+                                                                    </div>
                                                                 </div>
+                                                          
+                                                        </th>
+                                                        <td>
+                                                            <div className="flex items-center space-x-3">
+                                               
                                                             </div>
-                                                      
-                                                    </th>
-                                                    <td>
-                                                        <div className="flex items-center space-x-3">
-                                           
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                       {Class?.name?Class.name:'No Class Available'}
-                                                        <br />
-                                                        <span className="badge badge-ghost badge-sm">Available Seats:{Class.seats}</span>
-                                                    </td>
-                                                    <td>{Class.price}</td>
-                                                    <th>
-                                                        <button disabled={data?.role=='admin'?true:data?.role=='instructor'?true:Class.seats=='0'?true:false} className={`btn btn-primary $ ${user?.role=='admin'?'disabled':user?.role=='instructor'&&'disabled'}`} onClick={()=>handleAppliedclasses(user.email,user)} className="btn btn-ghost btn-warning">Add To My Class</button>
-                                                    </th>
-                                                </tr>)
-                                            }
+                                                        </td>
+                                                        <td>
+                                                           {Class?.name?Class.name:'No Class Available'}
+                                                            <br />
+                                                            <span className="badge badge-ghost badge-sm">Available Seats:{Class.seats}</span>
+                                                        </td>
+                                                        <td>{Class.price}</td>
+                                                        <th>
+                                                        <button onClick={()=>handleAppliedclasses(user?.email,user)} disabled={data?.role=='admin'?true:data?.role=='instructor'?true:Class.seats=='0'?true:data?.addedClasses?.find(Class=>Class._id==Class._id)?true:false} className={`btn btn-primary ${Class.seats=='0'&& 'disabled'} ${user?.role=='admin'?'disabled':user?.role=='instructor'&&'disabled'}`}>{data?.addedClasses?.find(Class=>Class._id==Class._id)?'already Added':'Add to list'}</button>
+                                                        </th>
+                                                    </tr>)
+                                                }
+                                            
 
                                         </tbody>
                                         {/* foot */}
