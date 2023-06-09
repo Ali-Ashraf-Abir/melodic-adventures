@@ -21,9 +21,9 @@ const Instructors = () => {
     console.log(data)
     return (
         <div>
-            <div className="text-3xl text-center font-nunito bg-warning py-12"><h1>Our Instructors</h1></div>
+            <div className="text-3xl font-bold border-b-4 border-primary text-center font-nunito py-6 gap-5"><h1>Our Instructors</h1></div>
             
-            <div className="">
+            <div className="grid grid-cols-1 lg:grid-cols-2">
                 {
                     data?.map(instructor=><InstructorCard
                     

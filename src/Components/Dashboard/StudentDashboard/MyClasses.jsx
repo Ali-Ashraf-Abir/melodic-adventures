@@ -8,6 +8,7 @@ const StudentMyClasses = () => {
     window.scroll(0,0)
     const [userData, setData] = useState()
     const [deleted,setDeleted]=useState(false)
+    const [data,setUserData]=useState()
 
     useEffect(()=>{
         
@@ -18,6 +19,7 @@ const StudentMyClasses = () => {
 
                     setData(result[0].addedClasses)
                     setDeleted(false)
+                    setUserData(result[0])
                 })
             }
     
@@ -28,17 +30,20 @@ const StudentMyClasses = () => {
 
         <div>
             <div className="font-nunito text-3xl font-bold text-center"><p>Your Classes</p></div>
-                  <div className="grid lg:grid-cols-2 grid-cols-1 lg:w-[900px] w-[full] mt-[20px]">
             {
-                userData?.map(singleClass=><StudentClassesCard
-                
-                key={singleClass._id}
-                singleClass={singleClass}
-                data={userData}
-                setDeleted={setDeleted}
-                ></StudentClassesCard>)
+                userData?                  <div className="grid lg:grid-cols-2 grid-cols-1 lg:w-[900px] w-[full] mt-[20px]">
+                {
+                    userData?.map(singleClass=><StudentClassesCard
+                    
+                    key={singleClass._id}
+                    singleClass={singleClass}
+                    data={userData}
+                    userData={data}
+                    setDeleted={setDeleted}
+                    ></StudentClassesCard>)
+                }
+                  </div>:<div className="text-xl mt-6 text-center"><h1>No Added Classes Found</h1></div>
             }
-              </div>
         </div>
     );
 };

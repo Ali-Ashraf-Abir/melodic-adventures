@@ -38,6 +38,7 @@ const AuthProvider = ({children}) => {
     const [user,setUser]=useState()
     const [loggingAs,setLoggingAs]=useState()
     const [loggingError,setLoggingError]=useState()
+    const [enrolled,setEnrolled]=useState()
     
 
     const signinGoogle=()=>{

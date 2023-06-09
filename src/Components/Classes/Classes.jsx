@@ -6,7 +6,7 @@ const Classes = () => {
 
 
 
-    const{loading}=useContext(AuthContext)
+    const{loading,enrolled}=useContext(AuthContext)
     const [classes,setClasses]=useState()
     const [added,setAdded]=useState(false)
     const [dataLoading,SetDataLoading]=useState(true)
@@ -23,13 +23,13 @@ const Classes = () => {
         setAdded(false)
         SetDataLoading(false)
 
-    },[added])
+    },[added,enrolled])
 
 
 
     return (
         <div>
-            <div className="h-200px text-center bg-warning py-12 text-3xl font-nunito"><p>All Classes</p></div>
+            <div className="h-200px text-center font-bold border-b-4 border-primary py-6 text-3xl font-nunito"><p>All Classes</p></div>
            
             <div className="grid grid-cols-1 lg:grid-cols-2 lg:w-[900px] w-[100%] mx-auto mt-[30px] gap-6">
                 {

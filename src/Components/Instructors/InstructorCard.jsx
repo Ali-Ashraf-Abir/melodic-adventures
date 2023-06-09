@@ -85,7 +85,7 @@ const InstructorCard = ({ instructor }) => {
     }
 
     return (
-        <div className="card lg:card-side bg-gray-500 shadow-xl lg:w-[50%] mx-auto w-[100%] mt-10 font-nunito">
+        <div className="card lg:card-side bg-base-100 shadow-xl lg:w-[90%] mx-auto w-[100%] mt-10 font-nunito">
             <figure><img className='h-[300px] w-[300px] gap-10' src={instructor.imageUrl} alt="Album" /></figure>
             <div className="card-body">
                 <h2 className="card-title text-3xl">{instructor.name}</h2>
