@@ -7,7 +7,7 @@ import { AuthContext } from '../AuthProvider/AuthProvider';
 const Login = () => {
     window.scroll(0,0)
     const navigate=useNavigate()
-    const { setLoggingAs, user, auth, loggingError, setLoggingError,setUser,signinGoogle } = useContext(AuthContext)
+    const { setLoggingAs, user, auth, loggingError, setLoggingError,setUser,signinGoogle,setLoading } = useContext(AuthContext)
     const handleTypeUser = () => {
         swal("How You Want To Use This Account?", {
             buttons: {
@@ -44,6 +44,7 @@ const Login = () => {
                 const user = userCredential.user;
                 // ...
                 setUser(user)
+
                 navigate('/')
             })
             .catch((error) => {

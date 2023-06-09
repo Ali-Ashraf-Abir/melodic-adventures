@@ -35,7 +35,7 @@ const AuthProvider = ({children}) => {
      
      },[])
 
-    const [user,setUser]=useState('')
+    const [user,setUser]=useState()
     const [loggingAs,setLoggingAs]=useState()
     const [loggingError,setLoggingError]=useState()
     
@@ -51,6 +51,7 @@ const AuthProvider = ({children}) => {
 
         const userData = { email:user.email, imageUrl:user.photoURL, name:user.displayName,role:'student' }
         setUser(user)
+        setLoading(true)
         console.log(user)
         fetch ('http://localhost:5000/users',{
           method:'POST',

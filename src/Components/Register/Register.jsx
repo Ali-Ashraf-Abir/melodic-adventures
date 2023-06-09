@@ -8,7 +8,7 @@ import { getAuth, updateProfile } from "firebase/auth";
 
 const Register = () => {
     window.scroll(0,0)
-    const { auth,setUser,loggingAs,signinGoogle } = useContext(AuthContext)
+    const { auth,setUser,loggingAs,signinGoogle,setLoading } = useContext(AuthContext)
     const [passwordError,setPasswordError]=useState('')
     const [registerError,setRegisterError]=useState(null)
     const [registerSuccess,setRegisterSuccess]=useState(null)
@@ -45,6 +45,7 @@ const Register = () => {
                   });
                   console.log(user)
                  setUser(user)
+
                  form.reset()
                  setRegisterSuccess("succesfully registered")
                  fetch ('http://localhost:5000/users',{
