@@ -12,7 +12,7 @@ const MyClasses = () => {
 
     useEffect(()=>{
 
-        fetch(`https://melodic-adventure-server.vercel.app/currentuserclass/${user.email.toLowerCase()}`)
+        fetch(`https://melodic-adventure-server-ali-ashraf-abir.vercel.app/currentuserclass/${user.email.toLowerCase()}`)
         .then(res=>res.json())
         .then(data=>{
             setClasses(data)

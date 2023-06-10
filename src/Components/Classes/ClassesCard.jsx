@@ -27,7 +27,7 @@ const ClassesCard = ({ singleClass, setAdded, added, dataLoading, SetDataLoading
         }
 
         if (user && !loading) {
-            fetch(`https://melodic-adventure-server.vercel.app/currentuser/${user?.email.toLowerCase()}`)
+            fetch(`https://melodic-adventure-server-ali-ashraf-abir.vercel.app/currentuser/${user?.email.toLowerCase()}`)
                 .then(res => res.json())
                 .then(result => {
 
@@ -62,7 +62,7 @@ const ClassesCard = ({ singleClass, setAdded, added, dataLoading, SetDataLoading
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`https://melodic-adventure-server.vercel.app/manageuseraddclass/${email}`, {
+                    fetch(`https://melodic-adventure-server-ali-ashraf-abir.vercel.app/manageuseraddclass/${email}`, {
                         method: 'PUT',
                         headers: {
                             'content-type': 'application/json'

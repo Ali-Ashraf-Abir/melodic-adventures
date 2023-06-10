@@ -10,7 +10,7 @@ const PaymentHistory = () => {
     useEffect(() => {
 
         if (user && !loading) {
-            fetch(`https://melodic-adventure-server.vercel.app/currentuser/${user.email.toLowerCase()}`)
+            fetch(`https://melodic-adventure-server-ali-ashraf-abir.vercel.app/currentuser/${user.email.toLowerCase()}`)
                 .then(res => res.json())
                 .then(result => {
                     console.log(result)

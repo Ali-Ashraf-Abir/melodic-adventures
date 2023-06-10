@@ -9,7 +9,7 @@ const PopularInstructors = () => {
 
     useEffect(() => {
 
-        fetch('https://melodic-adventure-server.vercel.app/getinstructors')
+        fetch('https://melodic-adventure-server-ali-ashraf-abir.vercel.app/getinstructors')
             .then(res => res.json())
             .then(result => {
                 setData(result)

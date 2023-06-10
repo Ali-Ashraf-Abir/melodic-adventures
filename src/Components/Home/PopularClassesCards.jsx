@@ -19,7 +19,7 @@ const PopularInstructorCards = ({ instructor }) => {
 
 
         if (user && !loading) {
-            fetch(`https://melodic-adventure-server.vercel.app/currentuser/${user.email.toLowerCase()}`)
+            fetch(`https://melodic-adventure-server-ali-ashraf-abir.vercel.app/currentuser/${user.email.toLowerCase()}`)
                 .then(res => res.json())
                 .then(result => {
 
@@ -35,7 +35,7 @@ const PopularInstructorCards = ({ instructor }) => {
     const handleShowClass = (email) => {
 
 
-        fetch(`https://melodic-adventure-server.vercel.app/currentuserclass/${email}`)
+        fetch(`https://melodic-adventure-server-ali-ashraf-abir.vercel.app/currentuserclass/${email}`)
             .then(res => res.json())
             .then(result => {
                 console.log(result)
@@ -64,7 +64,7 @@ const PopularInstructorCards = ({ instructor }) => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`https://melodic-adventure-server.vercel.app/manageuseraddclass/${email}`, {
+                    fetch(`https://melodic-adventure-server-ali-ashraf-abir.vercel.app/manageuseraddclass/${email}`, {
                         method: 'PUT',
                         headers: {
                             'content-type': 'application/json'

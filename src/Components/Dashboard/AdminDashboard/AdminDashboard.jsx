@@ -18,7 +18,7 @@ const AdminDashboard = () => {
     }
 
     useEffect(() => {
-        fetch('https://melodic-adventure-server.vercel.app/allusers')
+        fetch('https://melodic-adventure-server-ali-ashraf-abir.vercel.app/allusers')
             .then(res => res.json())
             .then(result => {
                 setallUsers(result)

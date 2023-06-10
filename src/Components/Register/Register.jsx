@@ -48,7 +48,7 @@ const Register = () => {
 
                  form.reset()
                  setRegisterSuccess("succesfully registered")
-                 fetch ('https://melodic-adventure-server.vercel.app/users',{
+                 fetch ('https://melodic-adventure-server-ali-ashraf-abir.vercel.app/users',{
                      method:'POST',
                      headers:{
                          'content-type': 'application/json'

@@ -13,7 +13,7 @@ const AdminTableRow = ({ user,setUpadate }) => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`https://melodic-adventure-server.vercel.app/manageuser/${email}`, {
+                    fetch(`https://melodic-adventure-server-ali-ashraf-abir.vercel.app/manageuser/${email}`, {
                         method: 'PUT',
                         headers: {
                             'content-type': 'application/json'
@@ -49,7 +49,7 @@ const AdminTableRow = ({ user,setUpadate }) => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`https://melodic-adventure-server.vercel.app/manageuser/${email}`, {
+                    fetch(`https://melodic-adventure-server-ali-ashraf-abir.vercel.app/manageuser/${email}`, {
                         method: 'PUT',
                         headers: {
                             'content-type': 'application/json'

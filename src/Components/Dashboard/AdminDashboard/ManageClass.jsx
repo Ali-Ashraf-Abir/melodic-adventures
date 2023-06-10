@@ -10,7 +10,7 @@ const ManageClass = () => {
 
     useEffect(()=>{
 
-        fetch('https://melodic-adventure-server.vercel.app/allclasses')
+        fetch('https://melodic-adventure-server-ali-ashraf-abir.vercel.app/allclasses')
         .then(res=>res.json())
         .then(data=>{
                 setClasses(data)

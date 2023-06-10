@@ -13,7 +13,7 @@ const StudentClassesCard = ({ singleClass, data, userData, setDeleted }) => {
     useEffect(() => {
 
         if (user && !loading) {
-            fetch(`https://melodic-adventure-server.vercel.app/currentuser/${user.email.toLowerCase()}`)
+            fetch(`https://melodic-adventure-server-ali-ashraf-abir.vercel.app/currentuser/${user.email.toLowerCase()}`)
                 .then(res => res.json())
                 .then(result => {
                     console.log(result)
@@ -28,7 +28,7 @@ const StudentClassesCard = ({ singleClass, data, userData, setDeleted }) => {
         const newData = data.filter(singleData => singleData._id != Class._id)
         console.log(newData)
 
-        fetch(`https://melodic-adventure-server.vercel.app/deleteclass/${user[0]._id}`, {
+        fetch(`https://melodic-adventure-server-ali-ashraf-abir.vercel.app/deleteclass/${user[0]._id}`, {
             method: 'put',
             headers: {
                 'content-type': 'application/json'
