@@ -60,7 +60,7 @@ const Navbar = () => {
   }
   return (
     <div>
-      <div className="navbar bg-base-100 font-nunito ">
+      <div className="navbar bg-base-100 font-nunito sticky  top-0 lg:block z-[100]">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -74,7 +74,7 @@ const Navbar = () => {
             </ul>
           </div>
           <Link to='/'><img className='w-[80px] h-[80px]' src="https://media.discordapp.net/attachments/1072167540375179264/1115652133887410196/InstrumentLogo.png?width=427&height=427" alt="" /></Link>
-          <h1 className='text-lg font-bold'>Melodic Adventures</h1>
+          <h1 className='text-lg font-bold lg:block hidden'>Melodic Adventures</h1>
         </div>
         <div className="navbar-center hidden lg:flex">
           <Link to='/'><h1 className='mr-5 hover:underline font-bold'>Home</h1></Link>
