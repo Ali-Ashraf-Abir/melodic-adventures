@@ -24,11 +24,11 @@ const StudendDashboard = () => {
     }
     return (
         <div>
-            <div className="drawer  lg:drawer-open font-nunito sticky top-0">
+            <div className="drawer  lg:drawer-open font-nunito">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col items-center ">
                     {/* Page content here */}
-                    <label htmlFor="my-drawer-2" className="btn btn-warning drawer-button lg:hidden">Open Menu</label>
+                    <label htmlFor="my-drawer-2" className="btn sticky top-[0] z-10 btn-warning drawer-button lg:hidden">Open Menu</label>
                     {
                         dashboard == 'enrolled class' && <div>
 
@@ -57,7 +57,7 @@ const StudendDashboard = () => {
                     }
 
                 </div>
-                <div className="drawer-side ">
+                <div className="drawer-side sticky top-[0] z-[10]">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <h1 className='font-bold text-xl text-center'>Student Dashboard</h1>
                     <ul className="menu p-4 w-60 h-full bg-base-200 gap-10  text-base-content text-center flex flex-col justify-start items-center  font-bold">

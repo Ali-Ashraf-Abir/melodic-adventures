@@ -34,7 +34,7 @@ const Dashboard = () => {
     
     
     return (
-      <div className="">
+      <div className="mt-[100px] lg:mt-[0px]">
           {
               dataLoading? <div className="text-center"><span className="loading loading-dots loading-lg"></span></div>:  <div>
               {userData[0]?.role == 'admin' && <AdminDashboard></AdminDashboard>}

@@ -96,13 +96,15 @@ const PopularClass = () => {
     return (
         <div>
             <div className="font-nunito text-3xl font-bold text-center mt-6 border-b-4 border-primary"><p>Popular Classes</p></div>
-                <div className="grid lg:grid-cols-2 grid-cols-1  gap-6 lg:w-[900px] mt-[20px] w-full mx-auto">
+                <div className="grid lg:grid-cols-2 grid-cols-1  gap-6 lg:w-[900px] mt-[20px] w-[100%] mx-auto">
                 {
-                classdata?.slice(0, 6).map(Class =><div className="card w-96 bg-base-100 shadow-xl image-full">
+                classdata?.slice(0, 6).map(Class =><div className="card lg:w-96 w-[100%] bg-base-100 shadow-xl image-full">
                     <figure><img src={Class.img} alt="Shoes" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">{Class.name}</h2>
                         <p>{Class.description.slice(0,100)+'....'}</p>
+                        <p>Available Seats:{Class.seats}</p>
+                        <p>Total Enrolled:{Class.totalEnrolled}</p>
                         <div className="card-actions justify-end ">
                         <button onClick={() => handleAppliedclasses(user?.email, user,Class)} disabled={data?.role == 'admin' ? true : data?.role == 'instructor' ? true : Class.seats == '0' ? true : data?.addedClasses?.find(singleClass => singleClass._id == Class._id) ? true : false} className={`btn btn-primary ${Class.seats == '0' && 'disabled'} ${user?.role == 'admin' ? 'disabled' : user?.role == 'instructor' && 'disabled'}`}>{data?.addedClasses?.find(singleClass => singleClass._id == Class._id) ? 'already Added' : 'Add to list'}</button>
                         </div>

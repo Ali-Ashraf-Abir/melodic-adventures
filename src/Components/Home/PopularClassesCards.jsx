@@ -95,7 +95,7 @@ const PopularInstructorCards = ({ instructor }) => {
 
     return (
         <div>
-            <div className="card w-96 glass font-nunito">
+            <div className="card lg:w-96 w-[100%] glass font-nunito">
                 <figure>< img  className='lg:w-[300px] lg:h-[300px]' src={instructor.imageUrl} alt="car!" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{instructor.name}</h2>
