@@ -70,7 +70,7 @@ const Addaclass = () => {
 
     return (
         
-        <div className='w-100% bg-base-200 mt-[20px]'>
+        <div className='w-100% bg-base-200 '>
           <Toaster></Toaster>
 
             <div className="text-center text-3xl py-10">Add your Class</div>

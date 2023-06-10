@@ -31,7 +31,7 @@ const StudentMyClasses = () => {
         <div>
             <div className="font-nunito text-3xl font-bold text-center"><p>Your Classes</p></div>
             {
-                userData?                  <div className="grid lg:grid-cols-2 grid-cols-1 lg:w-[900px] w-[full] mt-[20px]">
+                userData?<div className="grid lg:grid-cols-2 grid-cols-1 lg:w-[900px] mt-[20px]">
                 {
                     userData?.map(singleClass=><StudentClassesCard
                     
