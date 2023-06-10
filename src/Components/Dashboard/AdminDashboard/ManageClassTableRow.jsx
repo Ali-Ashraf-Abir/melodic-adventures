@@ -14,7 +14,7 @@ const ManageClassTableRow = ({ singleClass, setUpdated }) => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`http://localhost:5000/manageclass/${id}`, {
+                    fetch(`https://melodic-adventure-server.vercel.app/manageclass/${id}`, {
                         method: 'PUT',
                         headers: {
                             'content-type': 'application/json'
@@ -51,7 +51,7 @@ const ManageClassTableRow = ({ singleClass, setUpdated }) => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`http://localhost:5000/manageclass/${id}`, {
+                    fetch(`https://melodic-adventure-server.vercel.app/manageclass/${id}`, {
                         method: 'PUT',
                         headers: {
                             'content-type': 'application/json'
@@ -95,7 +95,7 @@ const ManageClassTableRow = ({ singleClass, setUpdated }) => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`http://localhost:5000/givefeedback/${id}`, {
+                    fetch(`https://melodic-adventure-server.vercel.app/givefeedback/${id}`, {
                         method: 'PUT',
                         headers: {
                             'content-type': 'application/json'
@@ -134,7 +134,7 @@ const ManageClassTableRow = ({ singleClass, setUpdated }) => {
     //     })
     //         .then((willDelete) => {
     //             if (willDelete) {
-    //                 fetch(`http://localhost:5000/manageclass/${id}`, {
+    //                 fetch(`https://melodic-adventure-server.vercel.app/manageclass/${id}`, {
     //                     method: 'PUT',
     //                     headers: {
     //                         'content-type': 'application/json'

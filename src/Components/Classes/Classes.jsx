@@ -12,7 +12,7 @@ const Classes = () => {
     const [dataLoading,SetDataLoading]=useState(true)
     useEffect(()=>{
 
-        fetch('http://localhost:5000/allclasses')
+        fetch('https://melodic-adventure-server.vercel.app/allclasses')
         .then(res=>res.json())
         .then(result=>{
             console.log(result)

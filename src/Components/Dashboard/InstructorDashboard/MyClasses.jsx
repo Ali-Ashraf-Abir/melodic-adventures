@@ -12,7 +12,7 @@ const MyClasses = () => {
 
     useEffect(()=>{
 
-        fetch(`http://localhost:5000/currentuserclass/${user.email.toLowerCase()}`)
+        fetch(`https://melodic-adventure-server.vercel.app/currentuserclass/${user.email.toLowerCase()}`)
         .then(res=>res.json())
         .then(data=>{
             setClasses(data)

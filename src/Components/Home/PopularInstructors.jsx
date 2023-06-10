@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import PopularInstructorCards from './PopularClassesCards';
+
+
 
 const PopularInstructors = () => {
     const [data, setData] = useState()
@@ -6,7 +9,7 @@ const PopularInstructors = () => {
 
     useEffect(() => {
 
-        fetch('http://localhost:5000/getinstructors')
+        fetch('https://melodic-adventure-server.vercel.app/getinstructors')
             .then(res => res.json())
             .then(result => {
                 setData(result)
@@ -21,16 +24,20 @@ const PopularInstructors = () => {
         <div>
             <div className="text-3xl font-bold border-b-4 border-primary text-center font-nunito py-6 gap-5"><h1>Our Instructors</h1></div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2">
+            <div className="grid grid-cols-1 lg:grid-cols-2 lg:w-[900px] mx-auto w-[full] gap-6 mt-6">
                 {
-                    data?.map(instructor => <InstructorCard
+                    data?.slice(0,6).map(instructor => <PopularInstructorCards
 
 
                         instructor={instructor}
 
-                    ></InstructorCard>)
+                    ></PopularInstructorCards>)
                 }
+
             </div>
+            {
+                data?.length>6?<div className='text-center mt-6'><Link to='/instructors'><button className='btn btn-warning'>See More</button></Link></div>:''
+            }
         </div>
     );
 };

@@ -13,7 +13,7 @@ const AdminTableRow = ({ user,setUpadate }) => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`http://localhost:5000/manageuser/${email}`, {
+                    fetch(`https://melodic-adventure-server.vercel.app/manageuser/${email}`, {
                         method: 'PUT',
                         headers: {
                             'content-type': 'application/json'
@@ -49,7 +49,7 @@ const AdminTableRow = ({ user,setUpadate }) => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`http://localhost:5000/manageuser/${email}`, {
+                    fetch(`https://melodic-adventure-server.vercel.app/manageuser/${email}`, {
                         method: 'PUT',
                         headers: {
                             'content-type': 'application/json'

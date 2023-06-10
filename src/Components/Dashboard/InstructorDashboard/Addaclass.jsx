@@ -48,7 +48,7 @@ const Addaclass = () => {
         const product={feedback,name,category,price,rating,description,email,img,name,username,image,status,totalEnrolled,seats}
         console.log(product)
 
-        fetch('http://localhost:5000/classes',{
+        fetch('https://melodic-adventure-server.vercel.app/classes',{
             method:'POST',
             headers:{'content-type':'application/json'},
             body: JSON.stringify(product),

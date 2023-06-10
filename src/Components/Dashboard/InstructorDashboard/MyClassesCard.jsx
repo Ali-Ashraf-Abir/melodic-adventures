@@ -25,7 +25,7 @@ const MyClassesCard = ({ singleClass, setDeleted, setUpdated }) => {
                     swal("Poof! Your imaginary file has been deleted!", {
                         icon: "success",
                     });
-                    fetch(`http://localhost:5000/deleteClass/${id}`, {
+                    fetch(`https://melodic-adventure-server.vercel.app/deleteClass/${id}`, {
                         method: 'DELETE'
                     })
                         .then(res => res.json())
@@ -66,7 +66,7 @@ const MyClassesCard = ({ singleClass, setDeleted, setUpdated }) => {
 
         console.log(Class)
 
-        fetch(`http://localhost:5000/updateclass/${id}`, {
+        fetch(`https://melodic-adventure-server.vercel.app/updateclass/${id}`, {
             method: 'PUT',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(Class),
@@ -91,7 +91,7 @@ const MyClassesCard = ({ singleClass, setDeleted, setUpdated }) => {
 
     // const handleEdit=(id,classes)=>{
     //     console.log(id)
-    //     fetch(`http://localhost:5000/updateclass/${id}`, {
+    //     fetch(`https://melodic-adventure-server.vercel.app/updateclass/${id}`, {
     //         method: 'PUT',
     //         body :JSON.stringify(classes)
     //     })

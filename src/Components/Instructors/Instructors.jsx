@@ -8,7 +8,7 @@ const Instructors = () => {
 
     useEffect(()=>{
 
-        fetch('http://localhost:5000/getinstructors')
+        fetch('https://melodic-adventure-server.vercel.app/getinstructors')
         .then(res=>res.json())
         .then(result=>{
             setData(result)

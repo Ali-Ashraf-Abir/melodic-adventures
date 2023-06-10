@@ -19,7 +19,7 @@ const Dashboard = () => {
             setDataLoading(true)
         }
         if (user && !loading) {
-            fetch(`http://localhost:5000/currentuser/${user.email.toLowerCase()}`)
+            fetch(`https://melodic-adventure-server.vercel.app/currentuser/${user.email.toLowerCase()}`)
                 .then(res => res.json())
                 .then(result => {
                  

@@ -23,7 +23,7 @@ const CheckoutForm = ({price,singleClass}) => {
 
     useEffect(()=>{
 
-        fetch('http://localhost:5000/create-payment-intent',{
+        fetch('https://melodic-adventure-server.vercel.app/create-payment-intent',{
             method:'post',
             headers:{
 
@@ -108,7 +108,7 @@ const CheckoutForm = ({price,singleClass}) => {
                 Class,transactionID
             }
             
-        fetch(`http://localhost:5000/updateclassseats/${singleClass._id}`, {
+        fetch(`https://melodic-adventure-server.vercel.app/updateclassseats/${singleClass._id}`, {
             method: 'PUT',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(newData),
@@ -117,7 +117,7 @@ const CheckoutForm = ({price,singleClass}) => {
             .then(data => {
 
             })
-            fetch(`http://localhost:5000/manageuserpayment/${user.email}`,{
+            fetch(`https://melodic-adventure-server.vercel.app/manageuserpayment/${user.email}`,{
                 method:'put',
                 headers:{
                     'content-type':'application/json'
