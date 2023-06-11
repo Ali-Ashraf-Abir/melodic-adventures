@@ -7,7 +7,7 @@ import EnrolledClass from './EnrolledClass';
 import PaymentHistory from './PaymentHistory';
 
 const StudendDashboard = () => {
-    window.scroll(0,0)
+
     const [dashboard, setDashboard] = useState('enrolled class')
 
 

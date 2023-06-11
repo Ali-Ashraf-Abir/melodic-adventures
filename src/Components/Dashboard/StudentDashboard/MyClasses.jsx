@@ -5,7 +5,7 @@ import StudentClassesCard from './StudentClassesCard';
 
 const StudentMyClasses = () => {
     const { user,loading,setEnrolled,enrolled } = useContext(AuthContext)
-    window.scroll(0,0)
+
     const [userData, setData] = useState()
     const [deleted,setDeleted]=useState(false)
     const [data,setUserData]=useState()

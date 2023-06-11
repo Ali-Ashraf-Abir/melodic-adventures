@@ -9,6 +9,7 @@ const InstructorCard = ({ instructor }) => {
     const [data,setData]=useState()
     const [dataLoading,setDataLoading]=useState(true)
     const navigate=useNavigate()
+    const [updated,setUpdated]=useState()
 
     useEffect(()=>{
         if(!data){
@@ -23,27 +24,24 @@ const InstructorCard = ({ instructor }) => {
         
                     setData(result[0])
                     setDataLoading(false)
+                    console.log(data)
+                  
                 })
             }
-    
-    },[loading])
-
-
-
-    const handleShowClass = (email) => {
-
-
-        fetch(`https://melodic-adventure-server-ali-ashraf-abir.vercel.app/currentuserclass/${email}`)
+            fetch(`https://melodic-adventure-server-ali-ashraf-abir.vercel.app/currentuserclass/${instructor.email}`)
             .then(res => res.json())
             .then(result => {
-  
+              
                 setClasses(result)
+                setUpdated(false)
             })
 
+    
+    },[loading,updated])
 
 
 
-    }
+   
     const handleAppliedclasses = (email, user,singleClass) => {
 
         if (!user) {
@@ -71,12 +69,13 @@ const InstructorCard = ({ instructor }) => {
                     })
                         .then(res => res.json())
                         .then(result => {
-            
+                           
                         })
-
+                    
                     swal("This Class is now Added To your dashboard", {
                         icon: "success",
                     });
+                    setUpdated(true)
                 } else {
                     swal("Decision Denied");
                 }
@@ -94,7 +93,7 @@ const InstructorCard = ({ instructor }) => {
 
 
                 <div className="card-actions justify-end">
-                    <label onClick={() => handleShowClass(instructor.email)} htmlFor={instructor._id} className="btn">Show Classes</label>
+                    <label htmlFor={instructor._id} className="btn">Show Classes</label>
 
                     {/* Put this part before </body> tag */}
                     {/* You can open the modal using ID.showModal() method */}
