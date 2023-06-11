@@ -29,15 +29,18 @@ const PaymentHistory = () => {
          
           
             {
-                data?.payments?<div className="overflow-x-auto mt-6">
+                data?.payments?<div className=" mt-6">
                 <table className="table">
                     {/* head */}
                     <thead>
                         <tr>
                             <th></th>
+                            <th></th>
                             <th>Class Name</th>
                             <th>Instructor Mail</th>
                             <th>Transaction ID</th>
+                            <th></th>
+                       
                         </tr>
                     </thead>
                     <tbody>
@@ -45,6 +48,8 @@ const PaymentHistory = () => {
                         {/* row 1 */}
                         {
                   data?.payments?.map((payment,index) => <tr className="bg-base-200">
+                      <th></th>
+                      <th></th>
                         <th>{index+1}</th>
                         <td>{payment.Class.name}</td>
                         <td>{payment.Class.email}</td>

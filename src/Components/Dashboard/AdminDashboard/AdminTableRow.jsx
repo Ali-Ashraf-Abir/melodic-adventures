@@ -78,7 +78,10 @@ const AdminTableRow = ({ user,setUpadate }) => {
     return (
 
         <tr>
-
+              <th className='lg:hidden block'></th>
+            <th className='lg:hidden block'></th>
+            <th className='lg:hidden block'></th>
+       
             <td>
                 <div className="flex items-center space-x-3">
 
@@ -99,6 +102,8 @@ const AdminTableRow = ({ user,setUpadate }) => {
             <th>
                 <button onClick={()=>handleMakeInstructor(user.email)} className="btn btn-primary btn-xs">make instructor</button>
             </th>
+            <th></th>
+            <th></th>
         </tr>
 
 

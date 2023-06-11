@@ -23,7 +23,7 @@ const ManageClassTableRow = ({ singleClass, setUpdated }) => {
                     })
                         .then(res => res.json())
                         .then(result => {
-                    
+
                             setUpdated(true)
                         })
 
@@ -60,7 +60,7 @@ const ManageClassTableRow = ({ singleClass, setUpdated }) => {
                     })
                         .then(res => res.json())
                         .then(result => {
-                       
+
                             setUpdated(true)
                         })
 
@@ -83,9 +83,9 @@ const ManageClassTableRow = ({ singleClass, setUpdated }) => {
 
         const form = event.target
         const feedback = form.feedback.value
-        const id=form.id.value
-      
-  
+        const id = form.id.value
+
+
         swal({
             title: "Are you sure?",
             text: "Is this your feedback?",
@@ -100,11 +100,11 @@ const ManageClassTableRow = ({ singleClass, setUpdated }) => {
                         headers: {
                             'content-type': 'application/json'
                         },
-                        body: JSON.stringify({feedback: feedback })
+                        body: JSON.stringify({ feedback: feedback })
                     })
                         .then(res => res.json())
                         .then(result => {
-                     
+
                             setUpdated(true)
                         })
 
@@ -166,7 +166,10 @@ const ManageClassTableRow = ({ singleClass, setUpdated }) => {
     return (
 
         <tr>
-
+            <th className='lg:hidden block'></th>
+            <th className='lg:hidden block'></th>
+            <th className='lg:hidden block'></th>
+            <th></th>
             <td>
                 <div className="flex items-center space-x-3">
 
@@ -200,15 +203,17 @@ const ManageClassTableRow = ({ singleClass, setUpdated }) => {
                             <form onSubmit={handleGetFeedback} className='flex flex-col justify-center items-center' action="">
                                 <input type='text' name='id' value={singleClass._id} className='hidden'></input>
                                 <input type='text' name='status' value={singleClass.status} className='hidden'></input>
-                            <textarea placeholder="Feedback" name='feedback' className="textarea textarea-bordered textarea-lg w-full max-w-xs" ></textarea>
-                            <input type='submit' className='btn btn-warning mt-4' value='submit'></input>
+                                <textarea placeholder="Feedback" name='feedback' className="textarea textarea-bordered textarea-lg w-full max-w-xs" ></textarea>
+                                <input type='submit' className='btn btn-warning mt-4' value='submit'></input>
                             </form>
                         </div>
                         <div className="modal-action">
                             <label htmlFor={singleClass._id} className="btn">Close!</label>
                         </div>
                     </div>
+
                 </div></th>
+
         </tr>
 
     );

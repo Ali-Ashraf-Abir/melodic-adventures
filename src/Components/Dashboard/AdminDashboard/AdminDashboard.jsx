@@ -5,9 +5,9 @@ import AdminTableRow from './AdminTableRow';
 import ManageClass from './ManageClass';
 const AdminDashboard = () => {
     const [dashboard, setDashboard] = useState('classes')
-    const [allUsers,setallUsers]=useState([])
-    const [updated,setUpadate]=useState(false)
-    window.scroll(0,0)
+    const [allUsers, setallUsers] = useState([])
+    const [updated, setUpadate] = useState(false)
+    window.scroll(0, 0)
     const handleDashboard = (menu) => {
         if (menu == 'classes') {
             setDashboard('classes')
@@ -23,14 +23,14 @@ const AdminDashboard = () => {
             .then(result => {
                 setallUsers(result)
             })
-            setUpadate(false)
+        setUpadate(false)
     }, [updated])
 
     return (
         <div>
             <div className="drawer  lg:drawer-open font-nunito ">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content flex flex-col items-center  ">
+                <div className="drawer-content flex flex-col items-center  overflow-x-auto">
                     {/* Page content here */}
                     <label htmlFor="my-drawer-2" className="btn btn-warning drawer-button lg:hidden">Open Menu</label>
                     {
@@ -43,42 +43,49 @@ const AdminDashboard = () => {
                             <div className="text-3xl font-bold text-center"><h1>Manage All Users</h1></div>
                             <div>
 
-                            <div className="font-nunito overflow-x-auto w-[100%]">
-                                <table className="table ">
-                                    {/* head */}
-                                    <thead>
-                                        <tr>
-           
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>role</th>
-                                          
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {/* row 1 */}
-                                       {allUsers.filter(user=>user.email!='admin@gmail.com').map(user=><AdminTableRow
-                                       
-                                       key={user._id}
-                                       user={user}
-                                       setUpadate={setUpadate}
-                                       ></AdminTableRow>)}
-                                    </tbody>
-                                    {/* foot */}
-                                    <tfoot>
-                                        <tr>
-                                      
-                                            <th>Name</th>
-                                            <th>email</th>
-                                            <th>role</th>
-                                    
-                                        </tr>
-                                    </tfoot>
+                                <div className="font-nunito overflow-x-auto w-[100%]">
+                                    <table className="table ">
+                                        {/* head */}
+                                        <thead>
+                                            <tr>
+                                                <th className='lg:hidden block'></th>
+                                                <th className='lg:hidden block'></th>
+                                                <th className='lg:hidden block'></th>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th>role</th>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {/* row 1 */}
+                                            {allUsers.filter(user => user.email != 'admin@gmail.com').map(user => <AdminTableRow
 
-                                </table>
+                                                key={user._id}
+                                                user={user}
+                                                setUpadate={setUpadate}
+                                            ></AdminTableRow>)}
+                                        </tbody>
+                                        {/* foot */}
+                                        <tfoot>
+                                            <tr>
+                                                <th className='lg:hidden block'></th>
+                                                <th className='lg:hidden block'></th>
+                                                <th className='lg:hidden block'></th>
+                                                <th>Name</th>
+                                                <th>email</th>
+                                                <th>role</th>
+                                                <th></th>
+                                                <th></th>
+
+                                            </tr>
+                                        </tfoot>
+
+                                    </table>
+                                </div>
+
                             </div>
-
-                        </div>
 
                         </div>
                     }

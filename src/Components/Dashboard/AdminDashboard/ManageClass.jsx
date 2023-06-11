@@ -33,7 +33,10 @@ const ManageClass = () => {
                             {/* head */}
                             <thead>
                                 <tr>
-
+                                <th className='lg:hidden block'></th>
+                                <th className='lg:hidden block'></th>
+                                <th className='lg:hidden block'></th>
+                                    <th></th>
                                     <th>Name</th>
                                     <th>Instructor Email</th>
                                     <th>Status</th>
@@ -54,7 +57,10 @@ const ManageClass = () => {
                             {/* foot */}
                             <tfoot>
                                 <tr>
-
+                                <th className='lg:hidden block'></th>
+                                <th className='lg:hidden block'></th>
+                                <th className='lg:hidden block'></th>
+                                <th></th>
                                 <th>Name</th>
                                     <th>Instructor Email</th>
                                     <th>Status</th>
