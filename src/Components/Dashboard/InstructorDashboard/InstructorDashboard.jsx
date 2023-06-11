@@ -45,7 +45,7 @@ const InstructorDashboard = () => {
                 
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <h1 className='font-bold text-xl text-center'>Instructor Dashboard</h1>
-                    <ul className="menu p-4 w-60 h-full bg-base-200 gap-10  text-base-content text-center flex flex-col justify-start items-center  font-bold">
+                    <ul className="menu p-4 w-60 h-full bg-base-200 gap-10  text-base-content text-center flex flex-col justify-start   font-bold">
 
                         {/* Sidebar content here */}
                         <li onClick={() => handleDashboard('add class')} className='mt-12'><a><FontAwesomeIcon icon={faSchoolCircleExclamation} />Add a class</a></li>

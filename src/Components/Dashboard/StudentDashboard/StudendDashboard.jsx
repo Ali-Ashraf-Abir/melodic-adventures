@@ -26,7 +26,7 @@ const StudendDashboard = () => {
         <div>
             <div className="drawer  lg:drawer-open font-nunito">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content flex flex-col items-center  overflow-x-auto">
+                <div className="drawer-content flex flex-col overflow-x-auto">
                     {/* Page content here */}
                     <label htmlFor="my-drawer-2" className="btn  btn-warning drawer-button lg:hidden ">Open Menu</label>
                   <div className=''>
