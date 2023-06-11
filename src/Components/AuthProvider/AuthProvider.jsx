@@ -53,7 +53,7 @@ const AuthProvider = ({children}) => {
         const userData = { email:user.email, imageUrl:user.photoURL, name:user.displayName,role:'student' }
         setUser(user)
         setLoading(true)
-        console.log(user)
+
         fetch ('https://melodic-adventure-server-ali-ashraf-abir.vercel.app/users',{
           method:'POST',
           headers:{
@@ -63,7 +63,7 @@ const AuthProvider = ({children}) => {
       })
       .then(res=>res.json())
       .then (data=>{
-          console.log(data)
+          
       })
       }).catch((error) => {
         // Handle Errors here.
@@ -85,7 +85,8 @@ const AuthProvider = ({children}) => {
         provider,
         signinGoogle,
         loading,
-        setLoading
+        setLoading,
+        enrolled,setEnrolled
 
 
     }

@@ -65,10 +65,10 @@ const CheckoutForm = ({price,singleClass}) => {
         });
         
         if (error) {
-            console.log('[error]', error);
+        
             setCardError(error.message)
         } else {
-            console.log('[PaymentMethod]', paymentMethod);
+          
             setCardError(null)
             
         }
@@ -89,7 +89,7 @@ const CheckoutForm = ({price,singleClass}) => {
             
             setProcessing(false)
         }
-        console.log(paymentIntent)
+
         if(paymentIntent.status=='succeeded'){
             
             setProcessing(false)
@@ -101,7 +101,7 @@ const CheckoutForm = ({price,singleClass}) => {
             const seats=parseInt(singleClass.seats)-1 
 
             const newData={totalEnrolled,seats}
-            console.log(newData)
+    
             
             const Class=singleClass
             const paymentData={
@@ -126,7 +126,7 @@ const CheckoutForm = ({price,singleClass}) => {
             })
             .then(res=>res.json())
             .then(result=>{
-                console.log(result)
+      
             })
 
             

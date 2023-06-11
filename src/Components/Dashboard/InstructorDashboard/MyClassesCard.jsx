@@ -30,7 +30,7 @@ const MyClassesCard = ({ singleClass, setDeleted, setUpdated }) => {
                     })
                         .then(res => res.json())
                         .then(data => {
-                            console.log(data)
+
                             if (data.deletedCount === 1) {
                                 setDeleted(true)
                             }
@@ -64,7 +64,7 @@ const MyClassesCard = ({ singleClass, setDeleted, setUpdated }) => {
 
         const Class = { name, price, description, id,seats }
 
-        console.log(Class)
+    
 
         fetch(`https://melodic-adventure-server-ali-ashraf-abir.vercel.app/updateclass/${id}`, {
             method: 'PUT',
@@ -73,7 +73,7 @@ const MyClassesCard = ({ singleClass, setDeleted, setUpdated }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+
                 if (data.modifiedCount === 1) {
                     setUpdated(true)
                     swal('class updated')

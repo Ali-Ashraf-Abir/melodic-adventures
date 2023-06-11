@@ -34,7 +34,7 @@ const PopularClass = () => {
 
     }, [loading, added, data])
     
-    console.log(data)
+
 
     useEffect(() => {
 
@@ -74,7 +74,7 @@ const PopularClass = () => {
                     })
                         .then(res => res.json())
                         .then(result => {
-                            console.log(result)
+                      
                         })
 
                     swal("This Class is now Added To your dashboard", {

@@ -13,7 +13,7 @@ const PaymentHistory = () => {
             fetch(`https://melodic-adventure-server-ali-ashraf-abir.vercel.app/currentuser/${user.email.toLowerCase()}`)
                 .then(res => res.json())
                 .then(result => {
-                    console.log(result)
+
                     setData(result[0])
                 })
         }

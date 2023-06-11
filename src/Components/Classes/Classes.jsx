@@ -15,7 +15,7 @@ const Classes = () => {
         fetch('https://melodic-adventure-server-ali-ashraf-abir.vercel.app/allclasses')
         .then(res=>res.json())
         .then(result=>{
-            console.log(result)
+     
             setClasses(result)
         })
 

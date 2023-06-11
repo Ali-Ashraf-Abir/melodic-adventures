@@ -30,7 +30,7 @@ const Dashboard = () => {
     
     },[loading])
 
-    console.log(user.email)
+
     
     
     return (

@@ -4,7 +4,7 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 import StudentClassesCard from './StudentClassesCard';
 
 const StudentMyClasses = () => {
-    const { user,loading } = useContext(AuthContext)
+    const { user,loading,setEnrolled,enrolled } = useContext(AuthContext)
     window.scroll(0,0)
     const [userData, setData] = useState()
     const [deleted,setDeleted]=useState(false)
@@ -18,12 +18,14 @@ const StudentMyClasses = () => {
                 .then(result => {
 
                     setData(result[0].addedClasses)
-                    setDeleted(false)
+                
                     setUserData(result[0])
+                    setDeleted(false)
+                    setEnrolled(false)
                 })
             }
     
-    },[loading,deleted])
+    },[loading,deleted,enrolled])
 
 
     return (

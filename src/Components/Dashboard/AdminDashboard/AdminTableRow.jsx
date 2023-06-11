@@ -22,7 +22,7 @@ const AdminTableRow = ({ user,setUpadate }) => {
                     })
                         .then(res => res.json())
                         .then(result => {
-                            console.log(result)
+                           
                         })
                         setUpadate(true)
                     swal("This user is now an Admin?", {
@@ -58,7 +58,7 @@ const AdminTableRow = ({ user,setUpadate }) => {
                     })
                         .then(res => res.json())
                         .then(result => {
-                            console.log(result)
+                           
                         })
                         setUpadate(true)
                     swal("This user is now an Instructor?", {

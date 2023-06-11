@@ -27,7 +27,7 @@ const Register = () => {
         const role='student'
 
         const userData = { email, password, imageUrl, address, gender,name,role }
-        console.log(userData)
+  
         if(!passwordError){
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
@@ -43,7 +43,7 @@ const Register = () => {
                     // An error occurred
                     // ...
                   });
-                  console.log(user)
+          
                  setUser(user)
 
                  form.reset()
@@ -57,7 +57,7 @@ const Register = () => {
                  })
                  .then(res=>res.json())
                  .then (data=>{
-                     console.log(data)
+   
                  })
             })
             .catch((error) => {
@@ -94,7 +94,7 @@ const Register = () => {
     return (
         <div>
             <div className='text-3xl font-bold text-center'>Register Now!</div>
-            <form onSubmit={handleSignin} className=' mt-[20px] lg:w-[40%] mx-auto bg-gray-300 py-12 rounded-lg flex flex-col justify-center items-center font-nunito font-bold'>
+            <form onSubmit={handleSignin} className=' mt-[20px] lg:w-[40%] mx-auto bg-base-200 py-12 rounded-lg flex flex-col justify-center items-center font-nunito font-bold'>
 
                 <div className="">
                     {

@@ -60,7 +60,7 @@ const Login = () => {
         <div>
             <div>
                 <div className='text-3xl font-bold text-center'>Login Now!</div>
-                <form onSubmit={handleLogin} className=' mt-[20px] lg:w-[40%] mx-auto bg-gray-300 py-12 rounded-lg flex flex-col justify-center items-center font-nunito font-bold'>
+                <form onSubmit={handleLogin} className=' mt-[20px] lg:w-[40%] mx-auto bg-base-200 py-12 rounded-lg flex flex-col justify-center items-center font-nunito font-bold'>
 
 
                     <div className="">

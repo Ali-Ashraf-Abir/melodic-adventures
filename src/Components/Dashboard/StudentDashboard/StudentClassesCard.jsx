@@ -5,9 +5,9 @@ import { json } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import CheckoutForm from '../../Checkout/Checkout';
 const stripePromise = loadStripe(`${import.meta.env.VITE_STRIPE_API}`);
-const StudentClassesCard = ({ singleClass, data, userData, setDeleted }) => {
+const StudentClassesCard = ({ singleClass,userData, data, setDeleted }) => {
 
-    const { loading, user, enrolled } = useContext(AuthContext)
+    const { loading, user, enrolled,setEnrolled } = useContext(AuthContext)
     const [Userdata, setData] = useState()
 
     useEffect(() => {
@@ -16,8 +16,10 @@ const StudentClassesCard = ({ singleClass, data, userData, setDeleted }) => {
             fetch(`https://melodic-adventure-server-ali-ashraf-abir.vercel.app/currentuser/${user.email.toLowerCase()}`)
                 .then(res => res.json())
                 .then(result => {
-                    console.log(result)
+           
                     setData(result)
+                    setEnrolled(false)
+              
                 })
         }
 
@@ -26,7 +28,7 @@ const StudentClassesCard = ({ singleClass, data, userData, setDeleted }) => {
     function deleteCLass(data, Class, user) {
 
         const newData = data.filter(singleData => singleData._id != Class._id)
-        console.log(newData)
+    
 
         fetch(`https://melodic-adventure-server-ali-ashraf-abir.vercel.app/deleteclass/${user[0]._id}`, {
             method: 'put',
@@ -37,7 +39,7 @@ const StudentClassesCard = ({ singleClass, data, userData, setDeleted }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+     
                 if (data.modifiedCount > 0) {
                     setDeleted(true)
                 }

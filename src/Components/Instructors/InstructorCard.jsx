@@ -36,7 +36,7 @@ const InstructorCard = ({ instructor }) => {
         fetch(`https://melodic-adventure-server-ali-ashraf-abir.vercel.app/currentuserclass/${email}`)
             .then(res => res.json())
             .then(result => {
-                console.log(result)
+  
                 setClasses(result)
             })
 
@@ -44,7 +44,7 @@ const InstructorCard = ({ instructor }) => {
 
 
     }
-    const handleAppliedclasses = (email, user) => {
+    const handleAppliedclasses = (email, user,singleClass) => {
 
         if (!user) {
             navigate('/login')
@@ -71,7 +71,7 @@ const InstructorCard = ({ instructor }) => {
                     })
                         .then(res => res.json())
                         .then(result => {
-                            console.log(result)
+            
                         })
 
                     swal("This Class is now Added To your dashboard", {
@@ -139,7 +139,7 @@ const InstructorCard = ({ instructor }) => {
                                                         </td>
                                                         <td>{Class.price}</td>
                                                         <th>
-                                                        <button onClick={()=>handleAppliedclasses(user?.email,user)} disabled={data?.role=='admin'?true:data?.role=='instructor'?true:Class.seats=='0'?true:data?.addedClasses?.find(singleClass=>singleClass._id==Class._id)?true:false} className={`btn btn-primary ${Class.seats=='0'&& 'disabled'} ${user?.role=='admin'?'disabled':user?.role=='instructor'&&'disabled'}`}>{data?.addedClasses?.find(singleClass=>singleClass._id==Class._id)?'already Added':'Add to list'}</button>
+                                                        <button onClick={()=>handleAppliedclasses(user?.email,user,Class)} disabled={data?.role=='admin'?true:data?.role=='instructor'?true:Class.seats=='0'?true:data?.addedClasses?.find(singleClass=>singleClass._id==Class._id)?true:false} className={`btn btn-primary ${Class.seats=='0'&& 'disabled'} ${user?.role=='admin'?'disabled':user?.role=='instructor'&&'disabled'}`}>{data?.addedClasses?.find(singleClass=>singleClass._id==Class._id)?'already Added':'Add to list'}</button>
                                                         </th>
                                                     </tr>)
                                             

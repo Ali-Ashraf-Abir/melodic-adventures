@@ -23,7 +23,7 @@ const ManageClassTableRow = ({ singleClass, setUpdated }) => {
                     })
                         .then(res => res.json())
                         .then(result => {
-                            console.log(result)
+                    
                             setUpdated(true)
                         })
 
@@ -60,7 +60,7 @@ const ManageClassTableRow = ({ singleClass, setUpdated }) => {
                     })
                         .then(res => res.json())
                         .then(result => {
-                            console.log(result)
+                       
                             setUpdated(true)
                         })
 
@@ -84,7 +84,7 @@ const ManageClassTableRow = ({ singleClass, setUpdated }) => {
         const form = event.target
         const feedback = form.feedback.value
         const id=form.id.value
-        console.log(feedback)
+      
   
         swal({
             title: "Are you sure?",
@@ -104,7 +104,7 @@ const ManageClassTableRow = ({ singleClass, setUpdated }) => {
                     })
                         .then(res => res.json())
                         .then(result => {
-                            console.log(result)
+                     
                             setUpdated(true)
                         })
 

@@ -4,14 +4,14 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Addaclass = () => {
     const {user}=useContext(AuthContext)
-    console.log()
+
     const [Image,setImage]=useState()
 
     const handleImageUpload=(event)=>{
         const formData=new FormData();
         const img=event.target.files[0]
         formData.append('image',img)
-        console.log(img)
+ 
         fetch(`https://api.imgbb.com/1/upload?expiration=600&key=${import.meta.env.VITE_IMAGEDB_API} ` ,{
             method:'POST',
             body : formData
@@ -46,7 +46,7 @@ const Addaclass = () => {
        
 
         const product={feedback,name,category,price,rating,description,email,img,name,username,image,status,totalEnrolled,seats}
-        console.log(product)
+
 
         fetch('https://melodic-adventure-server-ali-ashraf-abir.vercel.app/classes',{
             method:'POST',
@@ -55,7 +55,7 @@ const Addaclass = () => {
         })
         .then(res=>res.json())
         .then(data=>{
-            console.log(data)
+         
         })
 
         toast('your class has been added succesfully')

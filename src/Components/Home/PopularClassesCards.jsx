@@ -10,6 +10,7 @@ const PopularInstructorCards = ({ instructor }) => {
     const [classes, setClasses] = useState()
     const [data, setData] = useState()
     const [dataLoading, setDataLoading] = useState(true)
+    const [updated,setUpdated]=useState()
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -25,28 +26,31 @@ const PopularInstructorCards = ({ instructor }) => {
 
                     setData(result[0])
                     setDataLoading(false)
+                    
                 })
         }
+        fetch(`https://melodic-adventure-server-ali-ashraf-abir.vercel.app/currentuserclass/${instructor.email}`)
+        .then(res => res.json())
+        .then(result => {
 
-    }, [loading])
+            setClasses(result)
+            setUpdated(false)
+        })
+
+    }, [loading,updated])
 
 
 
     const handleShowClass = (email) => {
 
 
-        fetch(`https://melodic-adventure-server-ali-ashraf-abir.vercel.app/currentuserclass/${email}`)
-            .then(res => res.json())
-            .then(result => {
-                console.log(result)
-                setClasses(result)
-            })
+  
 
 
 
 
     }
-    const handleAppliedclasses = (email, user) => {
+    const handleAppliedclasses = (email, user,singleClass) => {
 
         if (!user) {
             navigate('/login')
@@ -73,12 +77,14 @@ const PopularInstructorCards = ({ instructor }) => {
                     })
                         .then(res => res.json())
                         .then(result => {
-                            console.log(result)
+              
                         })
 
                     swal("This Class is now Added To your dashboard", {
                         icon: "success",
+                    
                     });
+                    setUpdated(true)
                 } else {
                     swal("Decision Denied");
                 }
@@ -101,7 +107,7 @@ const PopularInstructorCards = ({ instructor }) => {
                     <h2 className="card-title">{instructor.name}</h2>
                     <p>Email:{instructor.email}</p>
                     <div className="card-actions justify-end">
-                        <label onClick={() => handleShowClass(instructor.email)} htmlFor={instructor._id} className="btn">Show Classes</label>
+                        <label htmlFor={instructor._id} className="btn">Show Classes</label>
 
                         {/* Put this part before </body> tag */}
                         {/* You can open the modal using ID.showModal() method */}
@@ -146,7 +152,7 @@ const PopularInstructorCards = ({ instructor }) => {
                                                             </td>
                                                             <td>{Class.price}</td>
                                                             <th>
-                                                                <button onClick={() => handleAppliedclasses(user?.email, user)} disabled={data?.role == 'admin' ? true : data?.role == 'instructor' ? true : Class.seats == '0' ? true : data?.addedClasses?.find(singleClass => singleClass._id == Class._id) ? true : false} className={`btn btn-primary ${Class.seats == '0' && 'disabled'} ${user?.role == 'admin' ? 'disabled' : user?.role == 'instructor' && 'disabled'}`}>{data?.addedClasses?.find(singleClass => singleClass._id == Class._id) ? 'already Added' : 'Add to list'}</button>
+                                                                <button onClick={() => handleAppliedclasses(user?.email, user,Class)} disabled={data?.role == 'admin' ? true : data?.role == 'instructor' ? true : Class.seats == '0' ? true : data?.addedClasses?.find(singleClass => singleClass._id == Class._id) ? true : false} className={`btn btn-primary ${Class.seats == '0' && 'disabled'} ${user?.role == 'admin' ? 'disabled' : user?.role == 'instructor' && 'disabled'}`}>{data?.addedClasses?.find(singleClass => singleClass._id == Class._id) ? 'already Added' : 'Add to list'}</button>
                                                             </th>
                                                         </tr>)
                                                 }

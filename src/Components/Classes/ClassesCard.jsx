@@ -71,7 +71,7 @@ const ClassesCard = ({ singleClass, setAdded, added, dataLoading, SetDataLoading
                     })
                         .then(res => res.json())
                         .then(result => {
-                            console.log(result)
+
                         })
 
                     swal("This Class is now Added To your dashboard", {
