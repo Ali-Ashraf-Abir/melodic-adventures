@@ -40,6 +40,8 @@ Contributions to Melodic Adventures are welcome! If you would like to contribute
 
 ##
 1. live link :https://melodic-adventures.web.app/
+2. admin email: admin@gmail.com
+3. admin pass : Abir123.
 
 ## License
 
